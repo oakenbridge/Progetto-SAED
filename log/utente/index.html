@@ -1,0 +1,447 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <title>Byeast | home page</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+</head>
+
+<body>
+    <div class="grid">
+        <div class="header">
+            <a href="index.html"><img class="home" src=" img\byeast.png" alt="home"></a>
+
+            <a class="menubottiglie" href="#bottiglie"> Bottiglie </a>
+            <a class="menufusti" href="#fusti"> Fusti </a>
+            <a class="menucontatti" href="#Info"> Chi Siamo </a>
+
+
+            <!--////////////////////////////////////////////////////////////////////////////////////////////////////-->
+            <button class="bottone" onclick="window.location.href='../../index.html'">Log Out</button>
+            <!--/////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        </div>
+
+
+
+        <div class="intro">
+            <section class="cd-intro">
+                <div class="cd-intro-content bouncy">
+                    <h1>Benvenuti su Byeast.it</h1>
+                    <p>Il paradiso della Birra</p>
+                </div>
+            </section>
+        </div>
+
+
+        <button onclick="topFunction()" id="topbtn" title="torna in cima ">top </button>
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("topbtn").style.display = "block";
+            } else {
+                document.getElementById("topbtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+        </script>
+        <!--///////////////////////////// etichetta \\\\\\\\\\\\\\\\\\\\\\\\-->
+        <br><br>
+        <div id="bottiglie" class="etichetta">
+            <img class="etichetta" src=" img\bottiglie.png">
+        </div>
+
+        <!--///////////////////////////// etichetta \\\\\\\\\\\\\\\\\\\\\\\\-->
+
+        <br>
+        <div class="tripel">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\tripel.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\tripel-back.jpg">
+                </div>
+            </div>
+
+
+            <h3>Tripel<h3>
+                    <p class="prezzo">3.45 &euro</p>
+
+                    <p class="quantity">33 cl</p>
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button id="btntripelbot" type="button" class="btncarrello" href="carrello.php" onclick="carrellotripbot()"><span>Aggiungi al carrello</span></button></p>
+
+        </div>
+        <script>
+            function carrellotripbot() {
+                document.getElementById("btntripelbot").innerHTML="ciao" ;
+                }
+        </script>
+
+        <div class="dubbel">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\dubbel.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\dubbel-back.jpg">
+                </div>
+            </div>
+            <h3>Dubbel<h3>
+                    <p class="prezzo">3.45€</p>
+
+                    <p class="quantity">33 cl</p>
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button id="dubbelbot" type="button" class="btncarrello" href="carrello.php" onclick="carrellodubbot()"><span>Aggiungi al carrello</span></button></p>
+        </div>
+        <script>
+            function carrellodubbot() {
+                document.getElementById("dubbelbot").innerHTML = "dubbel aggiunta";
+                }
+        </script>
+
+        <div class="bitter">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\bitter.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\bitter-back.jpg">
+                </div>
+            </div>
+            <h3>Bitter<h3>
+                    <p class="prezzo">3.45€</p>
+
+                    <p class="quantity">33 cl</p>
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+        </div>
+
+        <br><br>
+
+        <div class="tripel">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\IPA.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\ipa-back.jpg">
+                </div>
+            </div>
+            <h3>Imperial IPA<h3>
+                    <p class="prezzo">3.45€</p>
+
+                    <p class="quantity">33 cl</p>
+
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+        </div>
+
+        <div class="dubbel">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\lambic.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\lambic-back.jpg">
+                </div>
+            </div>
+            <h3>Lambic<h3>
+                    <p class="prezzo">3.45€</p>
+
+                    <p class="quantity">33 cl</p>
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+        </div>
+
+        <div class="bitter">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\pale_ale.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\pale-back.jpg">
+                </div>
+            </div>
+            <h3>Pale Ale<h3>
+                    <p class="prezzo">3.45€</p>
+
+                    <p class="quantity">33 cl</p>
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+        </div>
+
+        <br><br>
+        <div class="tripel">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\pilsner.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\pilsner-back.jpg">
+                </div>
+            </div>
+            <h3>Pilsner<h3>
+                    <p class="prezzo">3.45€</p>
+
+                    <p class="quantity">33 cl</p>
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+        </div>
+        <div class="dubbel">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\stout.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\stout-back.jpg">
+                </div>
+            </div>
+            <h3>Stout<h3>
+                    <p class="prezzo">3.45€</p>
+
+                    <p class="quantity">33 cl</p>
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+        </div>
+        <div class="bitter">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\weizen.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\weizen-back.jpg">
+                </div>
+            </div>
+            <h3>Weizen<h3>
+                    <p class="prezzo">3.45€</p>
+
+                    <p class="quantity">33 cl</p>
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+        </div>
+        <br><br>
+        <!--////////////////////////////// fusti \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+
+        <!--///////////////////////////// etichetta \\\\\\\\\\\\\\\\\\\\\\\\-->
+
+        <div id="fusti" class="etichetta">
+            <img class="etichetta" src=" img\fusti.png">
+        </div>
+
+        <!--///////////////////////////// etichetta \\\\\\\\\\\\\\\\\\\\\\\\-->
+        <br><br>
+        <div class="tripel">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\bar_tripel.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\tripel-back.jpg">
+                </div>
+            </div>
+            <h3>Tripel<h3>
+                    <p class="prezzo">86.90€</p>
+
+                    <p class="quantity">15 L</p>
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+        </div>
+
+        <div class="dubbel">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\bar_dubbel.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\dubbel-back.jpg">
+                </div>
+            </div>
+            <h3>Dubbel<h3>
+                    <p class="prezzo">86.90€</p>
+
+                    <p class="quantity">15 L</p>
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+        </div>
+
+        <div class="bitter">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\bar_bitter.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\bitter-back.jpg">
+                </div>
+            </div>
+            <h3>Bitter<h3>
+                    <p class="prezzo">86.90€</p>
+
+                    <p class="quantity">15 L</p>
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+        </div>
+
+        <br><br>
+
+        <div class="tripel">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\bar_IPA.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\ipa-back.jpg">
+                </div>
+            </div>
+            <h3>Imperial IPA<h3>
+                    <p class="prezzo">86.90€</p>
+
+                    <p class="quantity">15 L</p>
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+        </div>
+
+        <div class="dubbel">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\bar_lambic.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\lambic-back.jpg">
+                </div>
+            </div>
+            <h3>Lambic<h3>
+                    <p class="prezzo">86.90€</p>
+
+                    <p class="quantity">15 L</p>
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+        </div>
+
+        <div class="bitter">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\bar_paleAle.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\pale-back.jpg">
+                </div>
+            </div>
+            <h3>Pale Ale<h3>
+                    <p class="prezzo">86.90€</p>
+
+                    <p class="quantity">15 L</p>
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+        </div>
+
+        <br><br>
+
+        <div class="tripel">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\bar_pilsner.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\pilsner-back.jpg">
+                </div>
+            </div>
+            <h3>Pilsner<h3>
+                    <p class="prezzo">86.90€</p>
+
+                    <p class="quantity">15 L</p>
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+        </div>
+
+        <div class="dubbel">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\bar_stout.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\stout-back.jpg">
+                </div>
+            </div>
+            <h3>Stout<h3>
+                    <p class="prezzo">86.90€</p>
+
+                    <p class="quantity">15 L</p>
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+        </div>
+
+        <div class="bitter">
+            <div class="card">
+                <div class="front_card">
+                    <img class="birre" src=" img\bar_weizen.jpg">
+                </div>
+                <div class="back_card">
+                    <img class="birre" src=" img\weizen-back.jpg">
+                </div>
+            </div>
+            <h3>Weizen<h3>
+                    <p class="prezzo">86.90€</p>
+
+                    <p class="quantity">15 L</p>
+                    <p class="n_prodotti"> prodotti disponibili ...</p>
+
+                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+        </div>
+        <br><br>
+
+        <div class="footer">
+            <img class="logo1" src=" img\logo1.png" />
+        </div>
+        <div id="Info" class="Info">
+            <h2>Chi siamo</h2>
+            <h4><strong><em>Byeast</em></strong> è un team nato dalla collaborazione di una cinquantina di appassionati che desiderano offrire agli amanti della birra la migliore esperienza possibile nel mondo della birra.<br>
+                Numero uno nella produzione di birra artigianale a Perugia (IT), Byeast propone un assortimento di prodotti frutto di uno sviluppo e di una ricerca durata anni.
+                Ovviamente, non passiamo le giornate con una pinta di birra in mano.<br><br>Noterai che mentre percorri la nostra pagina alla ricerca delle più belle perle del settore,
+                il nostro web team cercherà di offrirti la migliore esperienza di navigazione sul nostro sito, il servizio clienti sarà sempre pronto a soddisfare le tue esigenze e a
+                rispondere alle tue domande e gli addetti alla logistica prepareranno le consegne con la massima cura.<br>
+                Ma soprattutto ci sei tu, perché senza di te tutto questo non sarebbe possibile.</h4>
+            <h4>Un grazie da tutta la famiglia di Byeast.</h4>
+            <h2>Contattaci</h2>
+            <h4>robinporta@byeast.it<br>
+                andreabragetta@byeast.it</h4>
+            <h5>+31 075 6660096</h5>
+            <Copyright>(c) 2018 Byeast All Rights Reserved</Copyright>
+            <br><br><br>
+        </div>
+        <div class="footer1">
+            <img class="logo1" src=" img\logo1.png" />
+        </div>
+
+    </div>
+
+    </div>
+</body>
+
+</html>
