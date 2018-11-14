@@ -47,7 +47,7 @@ class Byeast{
      * @param string $utente
      * @return Array Response string
      */
-	public function estrazioneinformazioni($utente){
+	public function estrazioneInformazioni($utente){
 		require_once "../include/core.inc.php";
 
         $link = connetti_mysql();
@@ -171,8 +171,8 @@ public function eliminaUtente($utente){
         $link = connetti_mysql();
         if(!$link) return false;
 
-        $check = "select Nome,Cognome,Username,Password,Ruolo,Email from utente where Username = '$utente';";
-        $sql = "DELETE INTO utente where Username = '$utente'";
+        $check = "SELECT Nome,Cognome,Username,Password,Ruolo,Email FROM utente WHERE Username = '$utente';";
+        $sql = "DELETE INTO utente WHERE Username = '$utente'";
     $res = esegui_query($link, $check);
 
     if($res==0){
@@ -181,7 +181,7 @@ public function eliminaUtente($utente){
     }else{
       esegui_query($link, $sql);
       disconnetti_mysql($link);
-      return "Eliminazione avventuta con successo";
+      return "Eliminazione avvenuta con successo";
     }
   }
 
