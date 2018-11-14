@@ -181,7 +181,7 @@ public function eliminaUtente($utente){
     }else{
       esegui_query($link, $sql);
       disconnetti_mysql($link);
-      return "Eliminazione avventuta con successo";
+      return "Eliminazione avvenuta con successo";
     }
   }
 
