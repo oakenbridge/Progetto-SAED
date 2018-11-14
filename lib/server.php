@@ -171,7 +171,7 @@ public function eliminaUtente($utente){
         $link = connetti_mysql();
         if(!$link) return false;
 
-        $check = "select Nome,Cognome,Username,Password,Ruolo,Email from utente where Username = '$utente';";
+        $check = "SELECT Nome,Cognome,Username,Password,Ruolo,Email from utente where Username = '$utente';";
         $sql = "DELETE INTO utente where Username = '$utente'";
     $res = esegui_query($link, $check);
 
