@@ -31,25 +31,19 @@
   <div id="modprod" class="totmodprod">
     <div id="titolomodprod"  class="totmodprod">
       <label>Modifica Prodotto</label><br>
-      <label>ID:</label>
-      <input type="text" name="ID" placeholder="ID..."/>
-        <input type="submit" name="Submit" value="Modifica"/>
     </div>
     <?php
-    if(isset($_POST['Submit'])){
-        if(isset($_POST["ID"]) && strlen($_POST["ID"]) >0)
-              {
+
                         require_once('C:/xampp/htdocs/Progetto-SAED/lib/class.phpwsdl.php');
                         ini_set('soap.wsdl_cache_enabled',0);
                         PhpWsdl::$CacheTime=0;
                         $wsdl="C:/xampp/htdocs/Progetto-SAED/lib/cache/server.wsdl";
                         $soap= new SoapClient($wsdl);
-                        $risposta = $soap->estrazioneInformazioni2($_POST["ID"]);
-                      }
-                    }
+                        $risposta = $soap->estrazioneInformazioni2();
+
   ?>
   </div>
-    <div style='text-align:center;color: red;'>
+    <div onclick="" style='text-align:center;color: red;'>
     <?php
                 if(isset($_POST['Modifica'])){
                 require_once('C:/xampp/htdocs/Progetto-SAED/lib/class.phpwsdl.php');

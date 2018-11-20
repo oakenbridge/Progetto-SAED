@@ -69,21 +69,22 @@ class Byeast{
   * @param string $ID
   * @return Array Response string
   */
-public function estrazioneinformazioni2($ID){
+public function estrazioneinformazioni2(){
  require_once "../include/core.inc.php";
 
      $link = connetti_mysql();
      if(!$link) return false;
- $sql = "SELECT ID,Nome,Quantita,Prezzo FROM prodotto WHERE ID='$ID'";
+ $sql = "SELECT ID,Nome,Quantita,Prezzo FROM prodotto";
  $res=esegui_query($link, $sql);
  $row=mysqli_fetch_assoc($res);
+ $stato = array($row["ID"],$row["Nome"],$row["Quantita"],$row["Prezzo"]);
  if ( mysqli_num_rows($res)>0) {
-         $risposta = array($row["ID"],$row["Nome"],$row["Quantita"],$row["Prezzo"],'OK');
+         disconnetti_mysql($link);
+         return $stato;
      } else {
-         $risposta = array('','','','','impossibile caricare dati');
+       disconnetti_mysql($link);
+       return "Errore";
      }
-     disconnetti_mysql($link);
-     return $risposta;
 }
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /**
@@ -309,25 +310,21 @@ public function eliminaUtente($utente){
 
        $link = connetti_mysql();
        if(!$link) return false;
-       if($ID!=NULL && $Nome!=NULL && $Quantita!=NULL && $Prezzo!=NULL){
+       if($Nome!=NULL && $ID!=NULL && $Quantita!=NULL && $Prezzo!=NULL){
            //ENTRA NELL'IF(SEEEEEEE)
-           $check= "SELECT ID='$ID', Nome='$Nome', Quantita='$Quantita', Prezzo='$Prezzo'FROM prodotto WHERE ID = '$ID';";
-           $sql = "UPDATE prodotto SET ID='$ID', Nome='$Nome', Quantita='$Quantita', Prezzo='$Prezzo';";
-           $res = esegui_query($link, $check);
+           $sql = "UPDATE prodotto SET ID='$ID', Nome='$Nome', Quantita='$Quantita', Prezzo='$Prezzo' WHERE ID = '$ID';";
+           $res = esegui_query($link, $sql);
            $row=mysqli_fetch_assoc($res);
-           if($res==0){
-             $stato = 'INVALID INPUT';
-             disconnetti_mysql($link);
-             return $stato;
-           }
-             else{
-           esegui_query($link,$sql);
+
            $stato = $row['prodotto'];
+
            disconnetti_mysql($link);
            return $stato;
          }
-
-
+         else{
+           $stato = 'INVALID INPUT';
+           return $stato;
+         }
  }
 //useless noob//
 	/**
