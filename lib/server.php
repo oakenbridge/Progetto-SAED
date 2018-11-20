@@ -78,12 +78,12 @@ public function estrazioneinformazioni2($ID){
  $res=esegui_query($link, $sql);
  $row=mysqli_fetch_assoc($res);
  if ( mysqli_num_rows($res)>0) {
-         $stato = array($row["ID"],$row["Nome"],$row["Quantita"],$row["Prezzo"],'OK');
+         $risposta = array($row["ID"],$row["Nome"],$row["Quantita"],$row["Prezzo"],'OK');
      } else {
-         $stato = array('','','','',"impossibile caricare dati");
+         $risposta = array('','','','','impossibile caricare dati');
      }
      disconnetti_mysql($link);
-     return $stato;
+     return $risposta;
 }
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /**
@@ -309,21 +309,25 @@ public function eliminaUtente($utente){
 
        $link = connetti_mysql();
        if(!$link) return false;
-       if($Nome!=NULL && $ID!=NULL && $Quantita!=NULL && $Prezzo!=NULL){
+       if($ID!=NULL && $Nome!=NULL && $Quantita!=NULL && $Prezzo!=NULL){
            //ENTRA NELL'IF(SEEEEEEE)
-           $sql = "UPDATE prodotto SET ID='$ID', Nome='$Nome', Quantita='$Quantita', Prezzo='$Prezzo' WHERE ID = '$ID';";
-           $res = esegui_query($link, $sql);
+           $check= "SELECT ID='$ID', Nome='$Nome', Quantita='$Quantita', Prezzo='$Prezzo'FROM prodotto WHERE ID = '$ID';";
+           $sql = "UPDATE prodotto SET ID='$ID', Nome='$Nome', Quantita='$Quantita', Prezzo='$Prezzo';";
+           $res = esegui_query($link, $check);
            $row=mysqli_fetch_assoc($res);
-
+           if($res==0){
+             $stato = 'INVALID INPUT';
+             disconnetti_mysql($link);
+             return $stato;
+           }
+             else{
+           esegui_query($link,$sql);
            $stato = $row['prodotto'];
-
            disconnetti_mysql($link);
            return $stato;
          }
-         else{
-           $stato = 'INVALID INPUT';
-           return $stato;
-         }
+
+
  }
 //useless noob//
 	/**

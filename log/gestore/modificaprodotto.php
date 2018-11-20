@@ -32,11 +32,11 @@
     <div id="titolomodprod"  class="totmodprod">
       <label>Modifica Prodotto</label><br>
       <label>ID:</label>
-      <input type="text" name="ID" placeholder="ID..." /><br>
+      <input type="text" name="ID" placeholder="ID..."/>
         <input type="submit" name="Submit" value="Modifica"/>
     </div>
     <?php
-    if(isset($_POST['Modifica'])){
+    if(isset($_POST['Submit'])){
         if(isset($_POST["ID"]) && strlen($_POST["ID"]) >0)
               {
                         require_once('C:/xampp/htdocs/Progetto-SAED/lib/class.phpwsdl.php');
@@ -51,7 +51,7 @@
   </div>
     <div style='text-align:center;color: red;'>
     <?php
-                if(isset($_POST['modifica'])){
+                if(isset($_POST['Modifica'])){
                 require_once('C:/xampp/htdocs/Progetto-SAED/lib/class.phpwsdl.php');
                 ini_set('soap.wsdl_cache_enabled',0);
                 PhpWsdl::$CacheTime=0;
@@ -61,13 +61,13 @@
               }
     ?>
     <label>ID:    </label> </br>
-    <input type="text" name="Nome" class="testouser__modprod" value = <?php echo $risposta[0]  ?> /> </br>
+    <input type="text" name="ID" class="testouser__modprod" value = <?php echo $risposta[0]  ?> /> </br>
     <label>Nome:  </label></br>
-    <input type="text" name="ID" class="testouser__modprod" value=<?php echo $risposta[1]  ?> /></br>
+    <input type="text" name="Nome" class="testouser__modprod" value= <?php echo $risposta[1]  ?> /></br>
     <label>Quantita: </label></br>
-    <input type="text" name="Quantita" class="testouser__modprod" value=<?php echo $risposta[2]  ?> /></br>
+    <input type="text" name="Quantita" class="testouser__modprod" value= <?php echo $risposta[2]  ?> /></br>
     <label>Prezzo: </label></br>
-    <input type="text" name="Prezzo" class="testouser__modprod" value=<?php echo $risposta[3]  ?> /></br>
+    <input type="text" name="Prezzo" class="testouser__modprod" value= <?php echo $risposta[3]  ?> /></br>
 
     <input type="submit" class="button__modprod clearfix" name="modifica" value="Modifica"/>
   </div>
