@@ -141,12 +141,7 @@ public function caricaProdotto($id,$nome,$quantita,$prezzo){
        $link = connetti_mysql();
        if(!$link) return false;
 
-     $sql = "INSERT INTO prodotto (ID,Nome,Quantità,Prezzo) VALUES ('$id','$nome','$quantità','$prezzo')";
-     if ($link->query($sql) === TRUE) {
-         echo "New record created successfully";
-     } else {
-         echo "Error: " . $sql . "<br>" . $link->error;
-     }
+     $sql = "INSERT INTO prodotto (ID,Nome,Quantita,Prezzo) VALUES ('$id','$nome','$quantita','$prezzo')";
    $res=esegui_query($link, $sql);
    if($res==0){
      disconnetti_mysql($link);
@@ -172,7 +167,7 @@ public function eliminaUtente($utente){
         if(!$link) return false;
 
         $check = "SELECT Nome,Cognome,Username,Password,Ruolo,Email FROM utente WHERE Username = '$utente';";
-        $sql = "DELETE INTO utente WHERE Username = '$utente'";
+        $sql = "DELETE FROM utente WHERE Username = '$utente'";
     $res = esegui_query($link, $check);
 
     if($res==0){

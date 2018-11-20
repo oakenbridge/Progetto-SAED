@@ -58,8 +58,8 @@
                                 $soap= new SoapClient($wsdl);
 
                                 $risposta = $soap->caricaProdotto($_POST["ID"],$_POST["Nome"],$_POST["Quantita"],$_POST["Prezzo"]);
-                                print "$risposta";
-                              
+                                print"$risposta";
+
                           }
 
                 ?>
@@ -69,8 +69,8 @@
           <input type="text" name="ID" class="testoaggiungi__prodotto" placeholder="ID..." /><br>
           <label>Nome:</label>
           <input type="text" name="Nome" class="testoaggiungi__prodotto" placeholder="Nome..." /><br>
-          <label>Quantita:</label>
-          <input type="text" name="Quantita" class="testoaggiungi__prodotto" placeholder="Quantita..." /><br>
+          <label>Quantità:</label>
+          <input type="text" name="Quantita" class="testoaggiungi__prodotto" placeholder="Quantità..." /><br>
           <label>Prezzo:</label>
           <input type="text" name="Prezzo" class="testoaggiungi__prodotto" placeholder="Prezzo..." /><br>
           <input type="submit" class="button__aggiungiprodotto clearfix" name="aggiungi" value="Aggiungi"/>

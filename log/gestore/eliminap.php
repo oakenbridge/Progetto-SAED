@@ -42,7 +42,6 @@
     if(isset($_POST['Submit'])){
         if(isset($_POST["Username"]) && strlen($_POST["Username"]) >0)
               {
-                if($_POST["Username"] != $_SESSION["Username"]){
                 require_once('C:/xampp/htdocs/Progetto-SAED/lib/class.phpwsdl.php');
                 ini_set('soap.wsdl_cache_enabled',0);
                 PhpWsdl::$CacheTime=0;
@@ -51,14 +50,12 @@
                 $risposta = $soap->eliminaUtente($_POST["Username"]);
                 print($risposta);
               }
-              else{
-                print'Non ti puoi eliminare da solo, dai...';
-              }
+
       }
       else{
         print"Compilare Tutti i Campi";
       }
-    }
+    
     ?>
   </div>
 </body>
