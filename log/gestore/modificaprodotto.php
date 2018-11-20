@@ -54,14 +54,14 @@
                 PhpWsdl::$CacheTime=0;
                 $wsdl="C:/xampp/htdocs/Progetto-SAED/lib/cache/server.wsdl";
                 $soap= new SoapClient($wsdl);
-                $replace = $soap->aggiornamento2($_POST['Nome'],$_POST['ID'],$_POST['Quantita'],$_POST['Prezzo']);
+                $replace = $soap->aggiornamento2($_POST['ID'],$_POST['Nome'],$_POST['Quantita'],$_POST['Prezzo']);
 
       }
     }
     ?>
-    <label>Nome:    </label> </br>
+    <label>ID:    </label> </br>
     <input type="text" name="Nome" class="testouser__modprod" value = <?php echo $risposta[0]  ?> /> </br>
-    <label>ID:  </label></br>
+    <label>Nome:  </label></br>
     <input type="text" name="ID" class="testouser__modprod" value=<?php echo $risposta[1]  ?> /></br>
     <label>Quantita: </label></br>
     <input type="text" name="Quantita" class="testouser__modprod" value=<?php echo $risposta[2]  ?> /></br>

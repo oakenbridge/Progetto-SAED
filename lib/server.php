@@ -63,6 +63,28 @@ class Byeast{
         disconnetti_mysql($link);
         return $stato;
 	}
+  /**
+  * estrazioneinformazioni2
+  *
+  * @param string $ID
+  * @return Array Response string
+  */
+public function estrazioneinformazioni2($ID){
+ require_once "../include/core.inc.php";
+
+     $link = connetti_mysql();
+     if(!$link) return false;
+ $sql = "SELECT Nome,ID,Quantita,Prezzo FROM prodotto WHERE ID='$ID'";
+ $res=esegui_query($link, $sql);
+ $row=mysqli_fetch_assoc($res);
+ if ( mysqli_num_rows($res)>0) {
+         $stato = array($row["Nome"],$row["ID"],$row["Quantita"],$row["Prezzo"],'OK');
+     } else {
+         $stato = array('','','','',"impossibile caricare dati");
+     }
+     disconnetti_mysql($link);
+     return $stato;
+}
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	/**
@@ -235,7 +257,7 @@ public function eliminaUtente($utente){
         if($usr!=NULL && $nome!=NULL && $cognome!=NULL && $username!=NULL && $password!=NULL && $ruolo!=NULL && $email!=NULL){
             //ENTRA NELL'IF
             $sql = "UPDATE utente SET Nome='$nome', Cognome='$cognome', Password='$password', Ruolo='$ruolo', Email='$email' WHERE Username = '$usr';";
-            //UPDATE `utente` SET `Nome`='Damiano' WHERE Username = 'DFidati' SICURAMENTE GIUSTA
+
             $res = esegui_query($link, $sql);
             $row=mysqli_fetch_assoc($res);
 
@@ -249,6 +271,36 @@ public function eliminaUtente($utente){
             return $stato;
           }
 	}
+  /**
+    * aggiornamento 2
+    *
+    * @param string $ID
+    * @param string $Nome
+    * @param string $Quantita
+    * @param string $Prezzo
+    * @return string Response string
+    */
+ public function aggiornamento2($ID,$Nome,$Quantita,$Prezzo){
+   require_once "../include/core.inc.php";
+
+       $link = connetti_mysql();
+       if(!$link) return false;
+       if($Nome!=NULL && $ID!=NULL && $Quantita!=NULL && $Prezzo!=NULL){
+           //ENTRA NELL'IF(SEEEEEEE)
+           $sql = "UPDATE prodotto SET ID='$ID', Nome='$Nome', Quantita='$Quantita', Prezzo='$Prezzo' WHERE ID = '$ID';";
+           $res = esegui_query($link, $sql);
+           $row=mysqli_fetch_assoc($res);
+
+           $stato = $row['prodotto'];
+
+           disconnetti_mysql($link);
+           return $stato;
+         }
+         else{
+           $stato = 'INVALID INPUT';
+           return $stato;
+         }
+ }
 //useless noob//
 	/**
      * inserisci_dip
@@ -267,7 +319,7 @@ public function eliminaUtente($utente){
         $link = connetti_mysql();
         if(!$link) return false;
 
-        $sql="INSERT INTO UTENTI (username,password,nome,cognome,email,ruolo) VALUES ('$username','$password','$nome','$cognome','$email', '$ruolo');";
+        $sql="INSERT INTO utente (username,password,nome,cognome,email,ruolo) VALUES ('$username','$password','$nome','$cognome','$email', '$ruolo');";
 
 		$res=esegui_query($link, $sql);
 		if($res==0){
