@@ -6,7 +6,7 @@
 <html lan="eu">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Elimina Prodotto</title>
 
   <link rel="stylesheet" href="/Progetto-SAED/style.css">
 
@@ -47,6 +47,7 @@
                 $wsdl="C:/xampp/htdocs/Progetto-SAED/lib/cache/server.wsdl";
                 $soap= new SoapClient($wsdl);
                 $risposta = $soap->eliminaProdotto($_POST["ID"]);
+                print($risposta);
     }
     ?>
   </div>

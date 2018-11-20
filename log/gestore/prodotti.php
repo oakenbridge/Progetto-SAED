@@ -2,7 +2,7 @@
 <html lan="eu">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Gestione Prodotti</title>
 
   <link rel="stylesheet" href="/Progetto-SAED/style.css">
 
@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  
+
   <header class="header clearfix">
     <div id="drop-menu">
 			<ul id="menu">

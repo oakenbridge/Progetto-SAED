@@ -64,31 +64,6 @@ class Byeast{
         return $stato;
 	}
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-	/**
-     * mostradip
-     *
-     * @param string $stringa
-     * @return Array Response string
-     */
-	public function mostradip($stringa){
-		require_once "../include/core.inc.php";
-
-        $link = connetti_mysql();
-        if(!$link) return false;
-
-		$sql = "SELECT nome, cognome from utenti where ruolo LIKE 'dipendente'";
-		$res=esegui_query($link, $sql);
-		$i=0;
-		while($row = mysqli_fetch_row($res)){
-			$return[$i]=(string)$row[0];
-			$i++;
-			$return[$i]=(string)$row[1];
-			$i++;
-		}
-		disconnetti_mysql($link);
-		return $return;
-	}
   //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     /**
      * caricafile
@@ -140,18 +115,44 @@ public function caricaProdotto($id,$nome,$quantita,$prezzo){
 
        $link = connetti_mysql();
        if(!$link) return false;
+       $check = "SELECT * FROM prodotto;";
+     $sql = "INSERT INTO prodotto (ID,Nome,Quantita,Prezzo) VALUES ('$id','$nome','$quantita','$prezzo');";
+   $res=esegui_query($link, $check);
 
-     $sql = "INSERT INTO prodotto (ID,Nome,Quantita,Prezzo) VALUES ('$id','$nome','$quantita','$prezzo')";
-   $res=esegui_query($link, $sql);
    if($res==0){
      disconnetti_mysql($link);
      return "Errore nell'inserimento";
    }else{
+     esegui_query($link,$sql);
      disconnetti_mysql($link);
      return "Inserimento avvenuto con successo";
    }
  }
+ /**
+    * prodotto
+    *
+    * @param string $ID
+    * @return string Response string
+    */
+ public function eliminaProdotto($ID){
+     require_once "../include/core.inc.php";
 
+         $link = connetti_mysql();
+         if(!$link) return false;
+
+         $check = "SELECT Nome, ID, Quantita, Prezzo from prodotto where ID = '$ID'";
+         $sql = "DELETE FROM prodotto where ID = '$ID'";
+     $res = esegui_query($link, $sql);
+
+     if($res==0){
+       disconnetti_mysql($link);
+       return "Errore nell'eliminazione";
+     }else{
+       esegui_query($link, $sql);
+       disconnetti_mysql($link);
+       return "Eliminazione avvenuta con successo";
+     }
+   }
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /**
    * dipendenti
@@ -180,38 +181,6 @@ public function eliminaUtente($utente){
     }
   }
 
-	/**
-     * dipendenti
-     *
-     * @param string $utente
-     * @return Array Response string
-     */
-	public function dipendenti($utente){
-		require_once "../include/core.inc.php";
-
-        $link = connetti_mysql();
-        if(!$link) return false;
-
-		$sql = "SELECT nome,cognome,CF,email,familiari,reddito FROM utenti WHERE username != '$utente'";
-		$res=esegui_query($link, $sql);
-		$i=0;
-		while($row = mysqli_fetch_row($res)){
-			$return[$i]=(string)$row[0];
-			$i++;
-			$return[$i]=(string)$row[1];
-            $i++;
-            $return[$i]=(string)$row[2];
-			$i++;
-			$return[$i]=(string)$row[3];
-            $i++;
-            $return[$i]=(string)$row[4];
-			$i++;
-			$return[$i]=(string)$row[5];
-			$i++;
-		}
-		disconnetti_mysql($link);
-		return $return;
-	}
 //useless noob------------------------------------------------------------------------------------------------------------------------------
 	 /**
      * aggiornamento
@@ -265,7 +234,7 @@ public function eliminaUtente($utente){
         $link = connetti_mysql();
         if(!$link) return false;
 
-        $sql="INSERT INTO UTENTI (username,password,nome,cognome,email,ruolo) VALUES ('$username','$password','$nome','$cognome','$email', '$ruolo');";
+        $sql="INSERT INTO utente (username,password,nome,cognome,email,ruolo) VALUES ('$username','$password','$nome','$cognome','$email', '$ruolo');";
 
 		$res=esegui_query($link, $sql);
 		if($res==0){
@@ -277,34 +246,6 @@ public function eliminaUtente($utente){
 			return "Valido";
 		}
 	}
-
-	/**
-     * scarica
-     *
-     * @param string $utente
-     * @return Array Response string
-     */
-	public function scarica($utente){
-		require_once "../include/core.inc.php";
-
-        $link = connetti_mysql();
-        if(!$link) return false;
-		$sql = "SELECT percorso, anno, mese FROM paghe JOIN utenti ON CONCAT(utenti.nome,utenti.cognome)= paghe.dipendente where utenti.username = '$utente'";
-        $res=esegui_query($link, $sql);
-        $i=0;
-
-		while($row = mysqli_fetch_row($res)){
-			$return[$i]=(string)$row[0];
-			$i++;
-			$return[$i]=(string)$row[1];
-            $i++;
-            $return[$i]=(string)$row[2];
-			$i++;
-		}
-		disconnetti_mysql($link);
-		return $return;
-	}
-}//useless noob//
 
 //Tool per la creazione del wsdl a partire dalla classe attuale
 include_once 'class.phpwsdl.php';

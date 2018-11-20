@@ -6,7 +6,7 @@
 <html lan="eu">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Modifica Prodotto</title>
 
   <link rel="stylesheet" href="/Progetto-SAED/style.css">
 
