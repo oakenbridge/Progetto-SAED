@@ -74,11 +74,11 @@ public function estrazioneinformazioni2($ID){
 
      $link = connetti_mysql();
      if(!$link) return false;
- $sql = "SELECT Nome,ID,Quantita,Prezzo FROM prodotto WHERE ID='$ID'";
+ $sql = "SELECT ID,Nome,Quantita,Prezzo FROM prodotto WHERE ID='$ID'";
  $res=esegui_query($link, $sql);
  $row=mysqli_fetch_assoc($res);
  if ( mysqli_num_rows($res)>0) {
-         $stato = array($row["Nome"],$row["ID"],$row["Quantita"],$row["Prezzo"],'OK');
+         $stato = array($row["ID"],$row["Nome"],$row["Quantita"],$row["Prezzo"],'OK');
      } else {
          $stato = array('','','','',"impossibile caricare dati");
      }
@@ -86,7 +86,31 @@ public function estrazioneinformazioni2($ID){
      return $stato;
 }
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/**
+   * prodotto
+   *
+   * @param string $ID
+   * @return string Response string
+   */
+public function eliminaProdotto($ID){
+    require_once "../include/core.inc.php";
 
+        $link = connetti_mysql();
+        if(!$link) return false;
+
+        $check = "SELECT Nome, ID, Quantita, Prezzo from prodotto where ID = '$ID'";
+        $sql = "DELETE FROM prodotto where ID = '$ID'";
+    $res = esegui_query($link, $sql);
+
+    if($res==0){
+      disconnetti_mysql($link);
+      return "Errore nell'eliminazione";
+    }else{
+      esegui_query($link, $sql);
+      disconnetti_mysql($link);
+      return "Eliminazione avvenuta con successo";
+    }
+  }
 	/**
      * mostradip
      *

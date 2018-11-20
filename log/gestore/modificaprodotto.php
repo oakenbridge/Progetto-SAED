@@ -30,34 +30,35 @@
 
   <div id="modprod" class="totmodprod">
     <div id="titolomodprod"  class="totmodprod">
-      <label>Modifica Prodotto</label>
+      <label>Modifica Prodotto</label><br>
       <label>ID:</label>
       <input type="text" name="ID" placeholder="ID..." /><br>
         <input type="submit" name="Submit" value="Modifica"/>
     </div>
     <?php
+    if(isset($_POST['Modifica'])){
+        if(isset($_POST["ID"]) && strlen($_POST["ID"]) >0)
+              {
                         require_once('C:/xampp/htdocs/Progetto-SAED/lib/class.phpwsdl.php');
                         ini_set('soap.wsdl_cache_enabled',0);
                         PhpWsdl::$CacheTime=0;
                         $wsdl="C:/xampp/htdocs/Progetto-SAED/lib/cache/server.wsdl";
                         $soap= new SoapClient($wsdl);
                         $risposta = $soap->estrazioneInformazioni2($_POST["ID"]);
+                      }
+                    }
   ?>
   </div>
     <div style='text-align:center;color: red;'>
     <?php
-    if(isset($_POST['Modifica'])){
-        if(isset($_POST["ID"]) && strlen($_POST["ID"]) >0)
-              {
+                if(isset($_POST['modifica'])){
                 require_once('C:/xampp/htdocs/Progetto-SAED/lib/class.phpwsdl.php');
                 ini_set('soap.wsdl_cache_enabled',0);
                 PhpWsdl::$CacheTime=0;
                 $wsdl="C:/xampp/htdocs/Progetto-SAED/lib/cache/server.wsdl";
                 $soap= new SoapClient($wsdl);
                 $replace = $soap->aggiornamento2($_POST['ID'],$_POST['Nome'],$_POST['Quantita'],$_POST['Prezzo']);
-
-      }
-    }
+              }
     ?>
     <label>ID:    </label> </br>
     <input type="text" name="Nome" class="testouser__modprod" value = <?php echo $risposta[0]  ?> /> </br>
@@ -68,7 +69,7 @@
     <label>Prezzo: </label></br>
     <input type="text" name="Prezzo" class="testouser__modprod" value=<?php echo $risposta[3]  ?> /></br>
 
-    <input type="submit" class="button__modprod clearfix" name="Modifica" value="Modifica"/>
+    <input type="submit" class="button__modprod clearfix" name="modifica" value="Modifica"/>
   </div>
 </body>
 </html>
