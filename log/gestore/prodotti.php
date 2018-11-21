@@ -35,7 +35,8 @@
       </section>
     <form action="#" class="clearfix" method="post" style="text-align:center">
       <input type="submit" class="button__login clearfix" name="AP" value="Aggiungi Nuovo Prodotto"/>
-      <input type="submit" class="button__login clearfix" name="EP" value="Elimina Prodotto"/>
+      <input type="submit" class="button__login clearfix" name="EP" value="Elimina Prodotto"/><br><br>
+      <input type="text" name="ID" placeholder="Inserire ID"/>
       <input type="submit" class="button__login clearfix" name="MP" value="Modifica Prodotto"/>
     </form>
   <?php

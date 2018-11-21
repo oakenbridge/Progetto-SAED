@@ -28,9 +28,9 @@
 		</div>
   </header>
 
-  <div id="modprod" class="totmodprod">
+  <div style='text-align:center;color: red;'id="modprod" class="totmodprod">
     <div id="titolomodprod"  class="totmodprod">
-      <label>Modifica Prodotto</label><br>
+      <label>Modifica Prodotto</label><br><br>
     </div>
     <?php
 
@@ -39,11 +39,19 @@
                         PhpWsdl::$CacheTime=0;
                         $wsdl="C:/xampp/htdocs/Progetto-SAED/lib/cache/server.wsdl";
                         $soap= new SoapClient($wsdl);
-                        $risposta = $soap->estrazioneInformazioni2();
+                      $risposta = $soap->estrazioneinformazioni2(/*$_POST['ID']*/);
 
   ?>
+  <label>ID:     <?php echo $risposta[0]?></label><br>
+  <input type="text" name="ID" class="testouser__modprod" placeholder="ID..."/> <br></br>
+  <label>Nome:  <?php echo $risposta[1]?></label><br>
+  <input type="text" name="Nome" class="testouser__modprod" placeholder="Nome..."/> <br></br>
+  <label>Quantita: <?php echo $risposta[2]?></label><br>
+  <input type="text" name="Quantita" class="testouser__modprod" placeholder="Quantita..."/> <br></br>
+  <label>Prezzo: <?php echo $risposta[3]?></label><br>
+  <input type="text" name="Prezzo" class="testouser__modprod"placeholder="Prezzo..."/> <br></br>
   </div>
-    <div onclick="" style='text-align:center;color: red;'>
+    <div style='text-align:center;color: red;'>
     <?php
                 if(isset($_POST['Modifica'])){
                 require_once('C:/xampp/htdocs/Progetto-SAED/lib/class.phpwsdl.php');
@@ -52,16 +60,9 @@
                 $wsdl="C:/xampp/htdocs/Progetto-SAED/lib/cache/server.wsdl";
                 $soap= new SoapClient($wsdl);
                 $replace = $soap->aggiornamento2($_POST['ID'],$_POST['Nome'],$_POST['Quantita'],$_POST['Prezzo']);
-              }
+                header("Location: modificaprodotto.php");
+            }
     ?>
-    <label>ID:    </label> </br>
-    <input type="text" name="ID" class="testouser__modprod" value = <?php echo $risposta[0]  ?> /> </br>
-    <label>Nome:  </label></br>
-    <input type="text" name="Nome" class="testouser__modprod" value= <?php echo $risposta[1]  ?> /></br>
-    <label>Quantita: </label></br>
-    <input type="text" name="Quantita" class="testouser__modprod" value= <?php echo $risposta[2]  ?> /></br>
-    <label>Prezzo: </label></br>
-    <input type="text" name="Prezzo" class="testouser__modprod" value= <?php echo $risposta[3]  ?> /></br>
 
     <input type="submit" class="button__modprod clearfix" name="modifica" value="Modifica"/>
   </div>

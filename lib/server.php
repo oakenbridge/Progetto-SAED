@@ -74,9 +74,16 @@ public function estrazioneinformazioni2(){
 
      $link = connetti_mysql();
      if(!$link) return false;
- $sql = "SELECT ID,Nome,Quantita,Prezzo FROM prodotto";
- $res=esegui_query($link, $sql);
- $row=mysqli_fetch_assoc($res);
+ $sql = "SELECT ID,Nome,Quantita,Prezzo FROM prodotto /*WHERE ID='$ID'*/";
+/*$result=esegui_query($link,$sql);
+ echo "<table>";
+ echo "<tr><td>ID</td><td>Nome</td><td>Quantita</td><td>Prezzo</td></tr>\n";
+while($row=mysqli_fetch_assoc($result)){
+  echo"<tr><td>($row('ID'))</td><td>($row('Nome'))</td><td>($row('Quantita'))</td><td>($row('Prezzo'))</td></tr>\n";
+}
+echo "</table>";*/
+$res=esegui_query($link,$sql);
+$row=mysqli_fetch_assoc($res);
  $stato = array($row["ID"],$row["Nome"],$row["Quantita"],$row["Prezzo"]);
  if ( mysqli_num_rows($res)>0) {
          disconnetti_mysql($link);
