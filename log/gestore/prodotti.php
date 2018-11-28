@@ -1,3 +1,6 @@
+<?php
+    require_once 'C:/xampp/htdocs/Progetto-SAED/include/core.inc.php';
+?>
 <!DOCTYPE html>
 <html lan="eu">
 <head>
@@ -52,10 +55,22 @@
             die();
           }
           else if (isset($_POST["MP"])) {
-            ob_end_clean();
-            header("Location: modificaprodotto.php");
-            die();
-          }
+                if(isset($_POST["ID"]) && strlen($_POST["ID"]) >0){
+                        //controlla id tramite il server
+                        //creazione soap client
+                        require_once('C:/xampp/htdocs/Progetto-SAED/lib/class.phpwsdl.php');
+                        ini_set('soap.wsdl_cache_enabled',0);
+                        PhpWsdl::$CacheTime=0;
+                        $wsdl="C:/xampp/htdocs/Progetto-SAED/lib/cache/server.wsdl";
+                        $soap= new SoapClient($wsdl);
+                        //richiesta di controllo credenziali al server
+                        $risposta = $soap->controllaID($_POST["ID"]);
+                          $_SESSION["ID"] = $risposta[1];
+                          header("Location: modificaprodotto.php");
+                          die();
+
+                      }
+                    }
   ?>
 
 

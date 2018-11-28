@@ -39,7 +39,7 @@
                         PhpWsdl::$CacheTime=0;
                         $wsdl="C:/xampp/htdocs/Progetto-SAED/lib/cache/server.wsdl";
                         $soap= new SoapClient($wsdl);
-                      $risposta = $soap->estrazioneinformazioni2(/*$_POST['ID']*/);
+                      $risposta = $soap->estrazioneinformazioni2($_SESSION["ID"]/*$_POST['ID']*/);
 
   ?>
   <label>ID:     <?php echo $risposta[0]?></label><br>

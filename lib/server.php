@@ -40,6 +40,29 @@ class Byeast{
         disconnetti_mysql($link);
         return $stato;
     }
+    /*
+    * @param string $ID
+    * @return Array Response string
+    */
+   public function controllaID($ID){
+       require_once "../include/core.inc.php";
+
+       $link = connetti_mysql();
+       if(!$link) return false;
+
+       $sql= "SELECT ID, Nome, Prezzo, Quantita FROM prodotto WHERE ID = '$ID'";
+       $res=esegui_query($link, $sql);
+
+       if ( mysqli_num_rows($res)>0) {
+           $row=mysqli_fetch_assoc($res);
+           $stato = array($row['ID']);
+           }
+       else{
+             $stato = array('Errore');
+       }
+       disconnetti_mysql($link);
+       return $stato;
+   }
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	 /**
      * estrazioneinformazioni
