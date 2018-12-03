@@ -39,17 +39,17 @@
                         PhpWsdl::$CacheTime=0;
                         $wsdl="C:/xampp/htdocs/Progetto-SAED/lib/cache/server.wsdl";
                         $soap= new SoapClient($wsdl);
-                      $risposta = $soap->estrazioneinformazioni2($_SESSION["ID"]/*$_POST['ID']*/);
+                      $risposta = $soap->estrazioneinformazioni2($_SESSION["ID"]);
 
   ?>
-  <label>ID:     <?php echo $risposta[0]?></label><br>
-  <input type="text" name="ID" class="testouser__modprod" placeholder="ID..."/> <br></br>
-  <label>Nome:  <?php echo $risposta[1]?></label><br>
-  <input type="text" name="Nome" class="testouser__modprod" placeholder="Nome..."/> <br></br>
-  <label>Quantita: <?php echo $risposta[2]?></label><br>
-  <input type="text" name="Quantita" class="testouser__modprod" placeholder="Quantita..."/> <br></br>
-  <label>Prezzo: <?php echo $risposta[3]?></label><br>
-  <input type="text" name="Prezzo" class="testouser__modprod"placeholder="Prezzo..."/> <br></br>
+  <label>ID:     </label><br>
+  <input type="text" name="ID" class="testouser__modprod" value="<?php echo $risposta[0]?>"/> <br></br>
+  <label>Nome:  </label><br>
+  <input type="text" name="Nome" class="testouser__modprod" value="<?php echo $risposta[1]?>"/> <br></br>
+  <label>Quantita: </label><br>
+  <input type="text" name="Quantita" class="testouser__modprod" value="<?php echo $risposta[2]?>"/> <br></br>
+  <label>Prezzo: </label><br>
+  <input type="text" name="Prezzo" class="testouser__modprod" value="<?php echo $risposta[3]?>"/> <br></br>
   </div>
     <div style='text-align:center;color: red;'>
     <?php
@@ -64,7 +64,7 @@
             }
     ?>
 
-    <input type="submit" class="button__modprod clearfix" name="modifica" value="Modifica"/>
+    <input type="submit" class="button__modprod clearfix" name="Modifica" value="Modifica"/>
   </div>
 </body>
 </html>

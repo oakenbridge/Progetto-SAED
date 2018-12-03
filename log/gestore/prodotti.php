@@ -65,7 +65,7 @@
                         $soap= new SoapClient($wsdl);
                         //richiesta di controllo credenziali al server
                         $risposta = $soap->controllaID($_POST["ID"]);
-                          $_SESSION["ID"] = $risposta[1];
+                          $_SESSION["ID"] = $risposta[0];
                           header("Location: modificaprodotto.php");
                           die();
 

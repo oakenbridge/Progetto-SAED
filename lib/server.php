@@ -40,7 +40,7 @@ class Byeast{
         disconnetti_mysql($link);
         return $stato;
     }
-    /*
+    /**
     * @param string $ID
     * @return Array Response string
     */
@@ -92,19 +92,13 @@ class Byeast{
   * @param string $ID
   * @return Array Response string
   */
-public function estrazioneinformazioni2(){
+public function estrazioneinformazioni2($ID){
  require_once "../include/core.inc.php";
 
      $link = connetti_mysql();
      if(!$link) return false;
- $sql = "SELECT ID,Nome,Quantita,Prezzo FROM prodotto /*WHERE ID='$ID'*/";
-/*$result=esegui_query($link,$sql);
- echo "<table>";
- echo "<tr><td>ID</td><td>Nome</td><td>Quantita</td><td>Prezzo</td></tr>\n";
-while($row=mysqli_fetch_assoc($result)){
-  echo"<tr><td>($row('ID'))</td><td>($row('Nome'))</td><td>($row('Quantita'))</td><td>($row('Prezzo'))</td></tr>\n";
-}
-echo "</table>";*/
+ $sql = "SELECT ID,Nome,Quantita,Prezzo FROM prodotto WHERE ID='$ID'";
+
 $res=esegui_query($link,$sql);
 $row=mysqli_fetch_assoc($res);
  $stato = array($row["ID"],$row["Nome"],$row["Quantita"],$row["Prezzo"]);
@@ -113,7 +107,7 @@ $row=mysqli_fetch_assoc($res);
          return $stato;
      } else {
        disconnetti_mysql($link);
-       return "Errore";
+       return "0000";
      }
 }
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -340,9 +334,9 @@ public function eliminaUtente($utente){
 
        $link = connetti_mysql();
        if(!$link) return false;
-       if($Nome!=NULL && $ID!=NULL && $Quantita!=NULL && $Prezzo!=NULL){
+       if($ID!=NULL && $Nome!=NULL && $Quantita!=NULL && $Prezzo!=NULL){
            //ENTRA NELL'IF(SEEEEEEE)
-           $sql = "UPDATE prodotto SET ID='$ID', Nome='$Nome', Quantita='$Quantita', Prezzo='$Prezzo' WHERE ID = '$ID';";
+           $sql = "UPDATE prodotto SET ID='$ID', Nome='$Nome', Quantita='$Quantita', Prezzo='$Prezzo'";
            $res = esegui_query($link, $sql);
            $row=mysqli_fetch_assoc($res);
 
