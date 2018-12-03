@@ -42,6 +42,7 @@
                       $risposta = $soap->estrazioneinformazioni2($_SESSION["ID"]);
 
   ?>
+  <form action="#" style='text-align: center;color: red;' method="post">
   <label>ID:     </label><br>
   <input type="text" name="ID" class="testouser__modprod" value="<?php echo $risposta[0]?>"/> <br></br>
   <label>Nome:  </label><br>
@@ -50,8 +51,8 @@
   <input type="text" name="Quantita" class="testouser__modprod" value="<?php echo $risposta[2]?>"/> <br></br>
   <label>Prezzo: </label><br>
   <input type="text" name="Prezzo" class="testouser__modprod" value="<?php echo $risposta[3]?>"/> <br></br>
-  </div>
-    <div style='text-align:center;color: red;'>
+  <input type="submit" class="button__modprod clearfix" name="Modifica" value="Modifica"/>
+
     <?php
                 if(isset($_POST['Modifica'])){
                 require_once('C:/xampp/htdocs/Progetto-SAED/lib/class.phpwsdl.php');
@@ -64,7 +65,7 @@
             }
     ?>
 
-    <input type="submit" class="button__modprod clearfix" name="Modifica" value="Modifica"/>
-  </div>
+
+  </form>
 </body>
 </html>

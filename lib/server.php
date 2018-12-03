@@ -336,7 +336,7 @@ public function eliminaUtente($utente){
        if(!$link) return false;
        if($ID!=NULL && $Nome!=NULL && $Quantita!=NULL && $Prezzo!=NULL){
            //ENTRA NELL'IF(SEEEEEEE)
-           $sql = "UPDATE prodotto SET ID='$ID', Nome='$Nome', Quantita='$Quantita', Prezzo='$Prezzo'";
+           $sql = "UPDATE prodotto SET ID='$ID', Nome='$Nome', Quantita='$Quantita', Prezzo='$Prezzo' WHERE ID='$ID'";
            $res = esegui_query($link, $sql);
            $row=mysqli_fetch_assoc($res);
 
