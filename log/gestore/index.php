@@ -59,7 +59,7 @@
     <label>Password: <?php echo $risposta[3]?></label></br>
     <label>Ruolo:    <?php echo $risposta[4]?></label></br>
     <label>Email:    <?php echo $risposta[5]?></label></br>
-    <input type="submit" class="bottonemod" name="Modifica" value="Modifica"/>
+    <input type="submit" class="modificabtn" name="Modifica" value="Modifica"/>
   </form>
 </div>
 <?php

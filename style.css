@@ -227,7 +227,7 @@ img.etichetta {
     margin: auto;
 }
 
-.bottonemod {
+input.modificabtn {
     text-decoration: none;
     background-color: #ffad33;
     border: 8px;
@@ -237,7 +237,6 @@ img.etichetta {
     font-size: 16px;
     padding: 14px 20px;
     cursor: pointer;
-    width: 100px;
     font-stretch: expanded;
     font-weight: lighter;
     font-family: fantasy;
