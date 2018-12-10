@@ -17,12 +17,12 @@
 <body>
 
   <header class="header clearfix">
-    <div id="drop-menu">
-			<ul id="menu">
-        <li><a href="/Progetto-SAED/index.html">Logout</a></li>
-        <li><a href="/Progetto-SAED/log/gestore/prodotti.php">Prodotti</a></li>
-        <li><a href="/Progetto-SAED/log/gestore/personale.php">Personale</a></li>
-        <li><a href="/Progetto-SAED/log/gestore/index.php">Profilo</a></li>
+    <div id="drop-menu" >
+			<ul id="menu" style="list-style-type: none;   text-decoration:none; display:block;" >
+        <li style=" display:inline; padding:15px;"><a href="/Progetto-SAED/index.html">Logout</a></li>
+        <li style=" display:inline; padding:15px;"><a href="/Progetto-SAED/log/gestore/prodotti.php">Prodotti</a></li>
+        <li style=" display:inline; padding:15px;"><a href="/Progetto-SAED/log/gestore/personale.php">Personale</a></li>
+        <li style=" display:inline; padding:15px;"><a href="/Progetto-SAED/log/gestore/index.php">Profilo</a></li>
 			</ul>
 		</div>
   </header>
@@ -59,7 +59,7 @@
     <label>Password: <?php echo $risposta[3]?></label></br>
     <label>Ruolo:    <?php echo $risposta[4]?></label></br>
     <label>Email:    <?php echo $risposta[5]?></label></br>
-    <input type="submit" class="button__login clearfix" name="Modifica" value="Modifica"/>
+    <input type="submit" class="bottonemod" name="Modifica" value="Modifica"/>
   </form>
 </div>
 <?php

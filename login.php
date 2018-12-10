@@ -61,7 +61,7 @@
                     ?>
                   </div>
                   </br>
-                <label>Username:</label>
+                <label >Username:</label>
                 <input type="text" name="Username" class="testouser__login" placeholder="Username..." /><br>
                 <label>Password:</label>
                 <input type="password" name="Password" class="testouser__register" placeholder="Password..." /><br>

@@ -136,30 +136,7 @@ public function eliminaProdotto($ID){
       return "Eliminazione avvenuta con successo";
     }
   }
-	/**
-     * mostradip
-     *
-     * @param string $stringa
-     * @return Array Response string
-     */
-	public function mostradip($stringa){
-		require_once "../include/core.inc.php";
 
-        $link = connetti_mysql();
-        if(!$link) return false;
-
-		$sql = "SELECT nome, cognome from utenti where ruolo LIKE 'dipendente'";
-		$res=esegui_query($link, $sql);
-		$i=0;
-		while($row = mysqli_fetch_row($res)){
-			$return[$i]=(string)$row[0];
-			$i++;
-			$return[$i]=(string)$row[1];
-			$i++;
-		}
-		disconnetti_mysql($link);
-		return $return;
-	}
   //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     /**
      * caricafile
@@ -253,38 +230,7 @@ public function eliminaUtente($utente){
     }
   }
 
-	/**
-     * dipendenti
-     *
-     * @param string $utente
-     * @return Array Response string
-     */
-	public function dipendenti($utente){
-		require_once "../include/core.inc.php";
 
-        $link = connetti_mysql();
-        if(!$link) return false;
-
-		$sql = "SELECT nome,cognome,CF,email,familiari,reddito FROM utenti WHERE username != '$utente'";
-		$res=esegui_query($link, $sql);
-		$i=0;
-		while($row = mysqli_fetch_row($res)){
-			$return[$i]=(string)$row[0];
-			$i++;
-			$return[$i]=(string)$row[1];
-            $i++;
-            $return[$i]=(string)$row[2];
-			$i++;
-			$return[$i]=(string)$row[3];
-            $i++;
-            $return[$i]=(string)$row[4];
-			$i++;
-			$return[$i]=(string)$row[5];
-			$i++;
-		}
-		disconnetti_mysql($link);
-		return $return;
-	}
 //useless noob------------------------------------------------------------------------------------------------------------------------------
 	 /**
      * aggiornamento
@@ -350,63 +296,7 @@ public function eliminaUtente($utente){
            return $stato;
          }
  }
-//useless noob//
-	/**
-     * inserisci_dip
-     *
-     * @param string $username
-     * @param string $password
-     * @param string $nome
-     * @param string $cognome
-     * @param string $email
-     * @param string $ruolo
-     * @return string
-     */
-	public function inserisci_dip($username,$password,$nome,$cognome,$email,$ruolo){
-		require_once "../include/core.inc.php";
 
-        $link = connetti_mysql();
-        if(!$link) return false;
-
-        $sql="INSERT INTO utente (username,password,nome,cognome,email,ruolo) VALUES ('$username','$password','$nome','$cognome','$email', '$ruolo');";
-
-		$res=esegui_query($link, $sql);
-		if($res==0){
-			disconnetti_mysql($link);
-			return "Errore";
-		}
-		else{
-			disconnetti_mysql($link);
-			return "Valido";
-		}
-	}
-
-	/**
-     * scarica
-     *
-     * @param string $utente
-     * @return Array Response string
-     */
-	public function scarica($utente){
-		require_once "../include/core.inc.php";
-
-        $link = connetti_mysql();
-        if(!$link) return false;
-		$sql = "SELECT percorso, anno, mese FROM paghe JOIN utenti ON CONCAT(utenti.nome,utenti.cognome)= paghe.dipendente where utenti.username = '$utente'";
-        $res=esegui_query($link, $sql);
-        $i=0;
-
-		while($row = mysqli_fetch_row($res)){
-			$return[$i]=(string)$row[0];
-			$i++;
-			$return[$i]=(string)$row[1];
-            $i++;
-            $return[$i]=(string)$row[2];
-			$i++;
-		}
-		disconnetti_mysql($link);
-		return $return;
-	}
 }//useless noob//
 
 //Tool per la creazione del wsdl a partire dalla classe attuale
