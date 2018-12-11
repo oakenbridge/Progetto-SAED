@@ -227,15 +227,21 @@ img.etichetta {
     margin: auto;
 }
 
+.titolo id {
+    margin: 15px;
+    position: absolute;
+}
+
 input.modificabtn {
     text-decoration: none;
     background-color: #ffad33;
+    margin-top: 15px;
     border: 8px;
     border-radius: 25px;
     color: black;
     text-align: center;
     font-size: 16px;
-    padding: 14px 20px;
+    padding: 14px 20px 14px 20px;
     cursor: pointer;
     font-stretch: expanded;
     font-weight: lighter;

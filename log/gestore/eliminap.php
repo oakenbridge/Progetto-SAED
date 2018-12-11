@@ -17,14 +17,15 @@
 
 <body>
   <header class="header clearfix">
-    <div id="drop-menu">
-			<ul id="menu">
-        <li><a href="/Progetto-SAED/index.html">Logout</a></li>
-        <li><a href="/Progetto-SAED/log/gestore/prodotti.php">Prodotti</a></li>
-        <li><a href="/Progetto-SAED/log/gestore/personale.php">Personale</a></li>
-        <li><a href="/Progetto-SAED/log/gestore/index.php">Profilo</a></li>
-			</ul>
-		</div>
+      <div id="drop-menu" style="padding: 15px;">
+  			<ul id="menu" style="list-style-type: none;   text-decoration:none; display:block;" >
+
+          <li style=" display:inline; padding:15px;"><a href="/Progetto-SAED/log/gestore/prodotti.php">Prodotti</a></li>
+          <li style=" display:inline; padding:15px;"><a href="/Progetto-SAED/log/gestore/personale.php">Personale</a></li>
+          <li style=" display:inline; padding:15px;"><a href="/Progetto-SAED/log/gestore/index.php">Profilo</a></li>
+          <li style=" display:inline; padding:15px;"><a href="/Progetto-SAED/index.html">Logout</a></li>
+  			</ul>
+  		</div>
   </header>
 
   <div id="elimina__p" class="titolo__eliminap">
@@ -34,7 +35,7 @@
     <form action="#" class="formelimina__p clearfix" method="post">
       <label>Username:</label>
       <input type="text" name="Username" class="testoelimina__p" placeholder="Username..." /><br>
-      <input type="submit" class="button__eliminap clearfix" name="Submit" value="Elimina"/>
+      <input type="submit" class="modificabtn" name="Submit" value="Elimina"/>
     </form>
   </div>
     <div style='text-align:center;color: red;'>
@@ -55,7 +56,7 @@
       else{
         print"Compilare Tutti i Campi";
       }
-    
+
     ?>
   </div>
 </body>

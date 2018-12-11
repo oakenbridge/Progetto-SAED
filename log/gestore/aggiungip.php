@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <title>Aggiungi Gestore</title>
 
-  <link rel="stylesheet" href="Progetto-SAED/style.css">
+  <link rel="stylesheet" href="/Progetto-SAED/style.css">
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,21 +16,22 @@
 
 <body>
   <header class="header clearfix">
-    <div id="drop-menu">
-			<ul id="menu">
-        <li><a href="/ Progetto-SAED/index.html">Logout</a></li>
-        <li><a href="/ Progetto-SAED/log/gestore/prodotti.php">Prodotti</a></li>
-        <li><a href="/ Progetto-SAED/log/gestore/personale.php">Personale</a></li>
-        <li><a href="/ Progetto-SAED/log/gestore/index.php">Profilo</a></li>
-			</ul>
-		</div>
+      <div id="drop-menu" style="padding: 15px;">
+  			<ul id="menu" style="list-style-type: none;   text-decoration:none; display:block;" >
+
+          <li style=" display:inline; padding:15px;"><a href="/Progetto-SAED/log/gestore/prodotti.php">Prodotti</a></li>
+          <li style=" display:inline; padding:15px;"><a href="/Progetto-SAED/log/gestore/personale.php">Personale</a></li>
+          <li style=" display:inline; padding:15px;"><a href="/Progetto-SAED/log/gestore/index.php">Profilo</a></li>
+          <li style=" display:inline; padding:15px;"><a href="/Progetto-SAED/index.html">Logout</a></li>
+  			</ul>
+  		</div>
   </header>
 
-  <section class="clearfix">
+  <section class="clearfix" style="padding:15px;">
     <div class="cover_filter">
       <div class="cover__caption">
         <div class="cover__caption__copy">
-          <h1>Aggiungi Personale</h1>
+          <h1 >Aggiungi Personale</h1>
           </div>
         </div>
       </div>
@@ -40,7 +41,7 @@
       <title>Form-AP</title>
     </head>
 
-      <div id="aggiungi__p" class="titolo__aggiungip">
+      <div id="aggiungi__p" class="titolo__aggiungip" style="padding-left:15px;">
         <div id="titolo__aggiungip"  class="titolo__aggiungip">
         </div>
         <form action="#" class="formaggiungi__p clearfix" method="post">
@@ -88,7 +89,7 @@
           <input type="text" name="Password2" class="testoaggiungi__p" placeholder="Password..." /><br>
           <label>Email:</label>
           <input type="text" name="Email" class="testoaggiungi__p" placeholder="Email..." /><br>
-          <input type="submit" class="button__aggiungip clearfix" name="aggiungi" value="Aggiungi"/>
+          <input type="submit" class="modificabtn" name="aggiungi" value="Aggiungi"/>
         </form>
       </div>
 <div>

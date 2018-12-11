@@ -17,14 +17,15 @@
 <body>
 
   <header class="header clearfix">
-    <div id="drop-menu">
-			<ul id="menu">
-        <li><a href="/Progetto-SAED/index.html">Logout</a></li>
-        <li><a href="/Progetto-SAED/log/gestore/prodotti.php">Prodotti</a></li>
-        <li><a href="/Progetto-SAED/log/gestore/personale.php">Personale</a></li>
-        <li><a href="/Progetto-SAED/log/gestore/index.php">Profilo</a></li>
-			</ul>
-		</div>
+      <div id="drop-menu" style="padding: 15px;">
+  			<ul id="menu" style="list-style-type: none;   text-decoration:none; display:block;" >
+
+          <li style=" display:inline; padding:15px;"><a href="/Progetto-SAED/log/gestore/prodotti.php">Prodotti</a></li>
+          <li style=" display:inline; padding:15px;"><a href="/Progetto-SAED/log/gestore/personale.php">Personale</a></li>
+          <li style=" display:inline; padding:15px;"><a href="/Progetto-SAED/log/gestore/index.php">Profilo</a></li>
+          <li style=" display:inline; padding:15px;"><a href="/Progetto-SAED/index.html">Logout</a></li>
+  			</ul>
+  		</div>
   </header>
 
     <section class="clearfix">
@@ -37,10 +38,10 @@
         </div>
       </section>
     <form action="#" class="clearfix" method="post" style="text-align:center">
-      <input type="submit" class="button__login clearfix" name="AP" value="Aggiungi Nuovo Prodotto"/>
-      <input type="submit" class="button__login clearfix" name="EP" value="Elimina Prodotto"/><br><br>
+      <input type="submit" class="modificabtn" name="AP" value="Aggiungi Nuovo Prodotto"/>
+      <input type="submit" class="modificabtn" name="EP" value="Elimina Prodotto"/><br><br>
       <input type="text" name="ID" placeholder="Inserire ID"/>
-      <input type="submit" class="button__login clearfix" name="MP" value="Modifica Prodotto"/>
+      <input type="submit" class="modificabtn" name="MP" value="Modifica Prodotto"/>
     </form>
   <?php
 
