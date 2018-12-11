@@ -49,7 +49,7 @@
 
 
   ?>
-  <div id="login" class="totlogin" style="margin:15px; align-text:center;">
+  <div id="login" class="totlogin" style="margin:15px;">
     <div id="titolologin" class="titolo">
       <label >Profilo</label>
     </div>
