@@ -65,7 +65,7 @@
                 <input type="text" name="Username" class="testouser__login" placeholder="Username..." /><br>
                 <label>Password:</label>
                 <input type="password" name="Password" class="testouser__register" placeholder="Password..." /><br>
-                <input type="submit" class="modificabtn" name="Submit" value="Login"/>
+                <input type="submit" class="modificabtn" name="Submit" value="Accedi"/>
               </form>
             </div>
 
