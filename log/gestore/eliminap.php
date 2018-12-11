@@ -28,8 +28,8 @@
   		</div>
   </header>
 
-  <div id="elimina__p" class="titolo__eliminap">
-    <div id="titolo__eliminap"  class="titolo__eliminap">
+  <div id="elimina__p" class="titolo__eliminap" style="margin-top:15px; padding-left:15px;">
+    <div id="titolo__eliminap"  class="titolo__eliminap" style="font-size: 25px; padding-bottom: 15px;">
       <label>Elimina Utente</label>
     </div>
     <form action="#" class="formelimina__p clearfix" method="post">
@@ -38,7 +38,7 @@
       <input type="submit" class="modificabtn" name="Submit" value="Elimina"/>
     </form>
   </div>
-    <div style='text-align:center;color: red;'>
+    <div  style="text-align:center; color:red;">
     <?php
     if(isset($_POST['Submit'])){
         if(isset($_POST["Username"]) && strlen($_POST["Username"]) >0)

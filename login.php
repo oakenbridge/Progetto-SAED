@@ -16,7 +16,7 @@
             <!--/////////////////////////////////////////////////////////////////////////////////////////////////////-->
         </div>
 
-        <div id="login" class="titolologin">
+        <div id="login" class="titolologin" style="margin-top:15px; padding-left:15px;">
               <div id="titolologin"  class="titolologin">
                 <label>Login</label>
               </div>
@@ -65,7 +65,7 @@
                 <input type="text" name="Username" class="testouser__login" placeholder="Username..." /><br>
                 <label>Password:</label>
                 <input type="password" name="Password" class="testouser__register" placeholder="Password..." /><br>
-                <input type="submit" class="button__login clearfix" name="Submit" value="Login"/>
+                <input type="submit" class="modificabtn" name="Submit" value="Login"/>
               </form>
             </div>
 

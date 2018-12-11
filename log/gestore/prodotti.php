@@ -37,7 +37,7 @@
           </div>
         </div>
       </section>
-    <form action="#" class="clearfix" method="post" style="text-align:center">
+    <form action="#" class="clearfix" method="post" style="padding-left:15px;span:10px;">
       <input type="submit" class="modificabtn" name="AP" value="Aggiungi Nuovo Prodotto"/>
       <input type="submit" class="modificabtn" name="EP" value="Elimina Prodotto"/><br><br>
       <input type="text" name="ID" placeholder="Inserire ID"/>

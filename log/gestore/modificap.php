@@ -50,10 +50,10 @@
   ?>
 
   <div id="login" class="totlogin">
-    <div id="titolologin"  class="totlogin">
+    <div id="titolologin"  class="totlogin" style="font-size:20px; padding-left:15px;">
       <label>Profilo</label>
     </div>
-  <form action="#" class="formlogin clearfix" method="post">
+  <form action="#" class="formlogin clearfix" method="post" style="padding-left:15px; margin-top:10px;">
     <?php
 
             if(isset($_POST['Modifica'])){
@@ -96,7 +96,7 @@
     <label>Email:    </label></br>
     <input type="text" name="Email" class="testouser__login" value=<?php echo $risposta[5]  ?> /></br>
 
-    <input type="submit" class="button__login clearfix" name="Modifica" value="Modifica"/>
+    <input type="submit" class="modificabtn" name="Modifica" value="Modifica"/>
   </form>
 
 </div>
