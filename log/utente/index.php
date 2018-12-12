@@ -1,4 +1,9 @@
+<?php
+    require_once 'C:/xampp/htdocs/Progetto-SAED/include/core.inc.php';
+?>
+<!DOCTYPE html>
 <html>
+
 <meta  charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 
 <head>
@@ -8,6 +13,7 @@
 </head>
 
 <body>
+
     <div class="grid">
         <div class="header">
             <a href="index.html"><img class="home" src=" img\byeast.png" alt="home"></a>
@@ -18,12 +24,11 @@
 
 
             <!--////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
             <button class="bottone" onclick="window.location.href='../../index.html'">Log Out</button>
+
             <!--/////////////////////////////////////////////////////////////////////////////////////////////////////-->
         </div>
-
-
-
         <div class="intro">
             <section class="cd-intro">
                 <div class="cd-intro-content bouncy">
@@ -60,7 +65,6 @@
         </div>
 
         <!--///////////////////////////// etichetta \\\\\\\\\\\\\\\\\\\\\\\\-->
-
         <br>
         <div class="tripel">
             <div class="card">
@@ -77,16 +81,12 @@
                     <p class="prezzo">3€</p>
 
                     <p class="quantity">33 cl</p>
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button id="btntripelbot" type="button" class="btncarrello" href="carrello.php" onclick="carrellotripbot()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
 
         </div>
-        <script>
-            function carrellotripbot() {
-                document.getElementById("btntripelbot").innerHTML="ciao" ;
-                }
-        </script>
+
 
         <div class="dubbel">
             <div class="card">
@@ -101,15 +101,11 @@
                     <p class="prezzo">3€</p>
 
                     <p class="quantity">33 cl</p>
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button id="dubbelbot" type="button" class="btncarrello" href="carrello.php" onclick="carrellodubbot()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
         </div>
-        <script>
-            function carrellodubbot() {
-                document.getElementById("dubbelbot").innerHTML = "dubbel aggiunta";
-                }
-        </script>
+
 
         <div class="bitter">
             <div class="card">
@@ -124,9 +120,9 @@
                     <p class="prezzo">3€</p>
 
                     <p class="quantity">33 cl</p>
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <br><br>
@@ -145,9 +141,9 @@
 
                     <p class="quantity">33 cl</p>
 
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <div class="dubbel">
@@ -163,9 +159,9 @@
                     <p class="prezzo">3€</p>
 
                     <p class="quantity">33 cl</p>
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <div class="bitter">
@@ -181,9 +177,9 @@
                     <p class="prezzo">3€</p>
 
                     <p class="quantity">33 cl</p>
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <br><br>
@@ -200,9 +196,9 @@
                     <p class="prezzo">3€</p>
 
                     <p class="quantity">33 cl</p>
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
         </div>
         <div class="dubbel">
             <div class="card">
@@ -217,9 +213,9 @@
                     <p class="prezzo">3€</p>
 
                     <p class="quantity">33 cl</p>
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
         </div>
         <div class="bitter">
             <div class="card">
@@ -234,9 +230,9 @@
                     <p class="prezzo">3€</p>
 
                     <p class="quantity">33 cl</p>
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
         </div>
         <br><br>
         <!--////////////////////////////// fusti \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
@@ -259,12 +255,12 @@
                 </div>
             </div>
             <h3>Tripel<h3>
-                    <p class="prezzo">86.90€</p>
+                    <p class="prezzo">87€</p>
 
                     <p class="quantity">15 L</p>
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <div class="dubbel">
@@ -277,12 +273,12 @@
                 </div>
             </div>
             <h3>Dubbel<h3>
-                    <p class="prezzo">86.90€</p>
+                    <p class="prezzo">87€</p>
 
                     <p class="quantity">15 L</p>
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <div class="bitter">
@@ -295,12 +291,12 @@
                 </div>
             </div>
             <h3>Bitter<h3>
-                    <p class="prezzo">86.90€</p>
+                    <p class="prezzo">87€</p>
 
                     <p class="quantity">15 L</p>
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <br><br>
@@ -315,12 +311,12 @@
                 </div>
             </div>
             <h3>Imperial IPA<h3>
-                    <p class="prezzo">86.90€</p>
+                    <p class="prezzo">87€</p>
 
                     <p class="quantity">15 L</p>
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <div class="dubbel">
@@ -333,12 +329,12 @@
                 </div>
             </div>
             <h3>Lambic<h3>
-                    <p class="prezzo">86.90€</p>
+                    <p class="prezzo">87€</p>
 
                     <p class="quantity">15 L</p>
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <div class="bitter">
@@ -351,12 +347,12 @@
                 </div>
             </div>
             <h3>Pale Ale<h3>
-                    <p class="prezzo">86.90€</p>
+                    <p class="prezzo">87€</p>
 
                     <p class="quantity">15 L</p>
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <br><br>
@@ -371,12 +367,12 @@
                 </div>
             </div>
             <h3>Pilsner<h3>
-                    <p class="prezzo">86.90€</p>
+                    <p class="prezzo">87€</p>
 
                     <p class="quantity">15 L</p>
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <div class="dubbel">
@@ -389,12 +385,12 @@
                 </div>
             </div>
             <h3>Stout<h3>
-                    <p class="prezzo">86.90€</p>
+                    <p class="prezzo">87€</p>
 
                     <p class="quantity">15 L</p>
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <div class="bitter">
@@ -407,12 +403,12 @@
                 </div>
             </div>
             <h3>Weizen<h3>
-                    <p class="prezzo">86.90€</p>
+                    <p class="prezzo">87€</p>
 
                     <p class="quantity">15 L</p>
-                    <p class="n_prodotti"> prodotti disponibili ...</p>
 
-                    <p><button type="button" class="btncarrello" href="carrello.php" onclick="carrello()"><span>Aggiungi al carrello</span></button></p>
+
+                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
         </div>
         <br><br>
 

@@ -44,7 +44,7 @@
                                     }
                                     else if ($risposta[0]=='Utente'){
                                       $_SESSION["Username"] = $risposta[1];
-                                      header("Location:log/utente/index.html");//Pagina che si apre se utente tipo utente
+                                      header("Location:log/utente/index.php");//Pagina che si apre se utente tipo utente
                                       ob_end_clean( );
                                       die();
                                       }
