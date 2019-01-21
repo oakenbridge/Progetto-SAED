@@ -141,11 +141,11 @@ public function eliminaProdotto($ID){
     /**
      * caricafile
      *
-     * @param string $nome_file
-     * @param string $dip
-     * @param string $mese
-     * @param string $anno
-     * @param string $percorso
+     * @param string $nome
+     * @param string $cognome
+     * @param string $username
+     * @param string $password
+     * @param string $email
      * @return string
      */
 	public function caricaGestore($nome,$cognome,$username,$password,$email){
@@ -201,7 +201,23 @@ public function caricaProdotto($id,$nome,$quantita,$prezzo){
      return "Inserimento avvenuto con successo";
    }
  }
+ /**
+  * decrementa prodotto
+  *
+  * @param int $id
+  * @param int $quantita
+  * @return string
+  */
+ public function decrementaProdotto($id, $quantita){
+    require_once "../include/core.inc.php";
 
+        $link = connetti_mysql();
+        if(!$link) return false;
+      $sql = "UPDATE prodotto SET Quantita='$quantita' - 1  WHERE ID='$id';";
+      $res=esegui_query($link, $sql);
+      disconnetti_mysql($link);
+      return "Prodotto acquistato con successo";
+  }
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /**
    * dipendenti

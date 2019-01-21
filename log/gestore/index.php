@@ -53,7 +53,6 @@
     <div id="titolologin" class="titolo">
       <label >Profilo</label>
     </div>
-  <form action="#" class="formlogin clearfix" method="post" >
     <label>Nome:     <?php echo $risposta[0]?></label></br>
     <label>Cognome:  <?php echo $risposta[1]?></label></br>
     <label>Username: <?php echo $risposta[2]?></label></br>
