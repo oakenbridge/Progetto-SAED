@@ -3,7 +3,6 @@
 ?>
 <!DOCTYPE html>
 <html>
-
 <meta  charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 
 <head>
@@ -83,20 +82,24 @@
                     <p class="quantity">33 cl</p>
 
 
-                    <p><form action="#" class="formlogin clearfix" method="post" ><input type="hidden" name="button"><button  type="submit" class="btncarrello" name="Bottone" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><form action="#" class="formlogin clearfix" method="post" >
+                      <button  type="submit" class="btncarrello" name="button" onclick="this.innerHTML='Prodotto Aggiunto'">
+                      <span>Aggiungi al carrello</span>
+                    </button></form></p>
+
                       <?php
-                      $id = '1011';
-                      $quantita= 1000;
+                      $id = 1011;
+
                       if(isset($_POST['button'])){
                         require_once('C:/xampp/htdocs/Progetto-SAED/lib/class.phpwsdl.php');
                         ini_set('soap.wsdl_cache_enabled',0);
                         PhpWsdl::$CacheTime=0;
                         $wsdl="C:/xampp/htdocs/Progetto-SAED/lib/cache/server.wsdl";
                         $soap= new SoapClient($wsdl);
-                        $risposta = $soap->decrementaProdotto($id, $quantita);
+                        $risposta = $soap->decrementaProdotto($id);
                       }
                       ?>
-                    </form>
+
         </div>
 
 

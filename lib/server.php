@@ -208,16 +208,24 @@ public function caricaProdotto($id,$nome,$quantita,$prezzo){
   * @param int $quantita
   * @return string
   */
- public function decrementaProdotto($id, $quantita){
+ public function decrementaProdotto($id){
     require_once "../include/core.inc.php";
-
         $link = connetti_mysql();
         if(!$link) return false;
-      $sql = "UPDATE prodotto SET Quantita='$quantita' - 1  WHERE ID='$id';";
-      $res=esegui_query($link, $sql);
-      disconnetti_mysql($link);
-      return "Prodotto acquistato con successo";
-  }
+        $check="SELECT Quantita FROM prodotto WHERE ID='$id';";
+        $quantita=esegui_query($link, $check);
+
+      if($quantita==0){
+        disconnetti_mysql($link);
+        return "Errore nell'estrazione";
+      }else{
+        $sql = "UPDATE prodotto SET Quantita=Quantita - 1  WHERE ID='$id';";
+        esegui_query($link, $sql);
+        disconnetti_mysql($link);
+        return "Acquisto avvenuto con successo";
+      }
+    }
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /**
    * dipendenti
