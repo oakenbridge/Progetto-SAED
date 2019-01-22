@@ -80,23 +80,49 @@
                     <p class="prezzo">3€</p>
 
                     <p class="quantity">33 cl</p>
+                    <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
+                                            <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
+                                                -
+                                            </button>
+                                            <input type="number" id="input" name="input" value="1"></input>
+                                            <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
+                                                +
+                                            </button>
+                                            <script>
+                                            const minusButton = document.getElementById('minus');
+                                            const plusButton = document.getElementById('plus');
+                                            const inputField = document.getElementById('input');
 
+                                            minusButton.addEventListener('click', event => {
+                                            event.preventDefault();
+                                            const currentValue = Number(inputField.value) || 0;
+                                            inputField.value = currentValue - 1;
+                                            });
 
-                    <p><form action="#" class="formlogin clearfix" method="post" >
-                      <button  type="submit" class="btncarrello" name="button" onclick="this.innerHTML='Prodotto Aggiunto'">
+                                            plusButton.addEventListener('click', event => {
+                                            event.preventDefault();
+                                            const currentValue = Number(inputField.value) || 0;
+                                            inputField.value = currentValue + 1;
+                                            });
+                                            </script>
+                                        </div>
+
+                    <p>
+                      <button  type="submit" class="btncarrello" name="button" onclick="window.alert('Hai acquistato <?php echo $_POST['input'] ?> prodotti')">
                       <span>Aggiungi al carrello</span>
                     </button></form></p>
 
                       <?php
                       $id = 1011;
-
+                      $input = 1;
                       if(isset($_POST['button'])){
                         require_once('C:/xampp/htdocs/Progetto-SAED/lib/class.phpwsdl.php');
                         ini_set('soap.wsdl_cache_enabled',0);
                         PhpWsdl::$CacheTime=0;
                         $wsdl="C:/xampp/htdocs/Progetto-SAED/lib/cache/server.wsdl";
                         $soap= new SoapClient($wsdl);
-                        $risposta = $soap->decrementaProdotto($id);
+                        $input = $_POST['input'];
+                        $risposta = $soap->decrementaProdotto($id,$input);
                       }
                       ?>
 
@@ -118,7 +144,7 @@
                     <p class="quantity">33 cl</p>
 
 
-                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><button  type="button" class="btncarrello" onclick="window.alert('Hai acquistato  prodotti')"><span>Aggiungi al carrello</span></button></p>
         </div>
 
 
@@ -137,7 +163,7 @@
                     <p class="quantity">33 cl</p>
 
 
-                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><button  type="button" class="btncarrello" onclick="window.alert('Prodotto Acquistato')"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <br><br>
@@ -158,7 +184,7 @@
 
 
 
-                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><button  type="button" class="btncarrello" onclick="window.alert('Prodotto Acquistato')"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <div class="dubbel">
@@ -176,7 +202,7 @@
                     <p class="quantity">33 cl</p>
 
 
-                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><button  type="button" class="btncarrello" onclick="window.alert('Prodotto Acquistato')"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <div class="bitter">
@@ -194,7 +220,7 @@
                     <p class="quantity">33 cl</p>
 
 
-                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><button  type="button" class="btncarrello" onclick="window.alert('Prodotto Acquistato')"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <br><br>
@@ -213,7 +239,7 @@
                     <p class="quantity">33 cl</p>
 
 
-                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><button  type="button" class="btncarrello" onclick="window.alert('Prodotto Acquistato')"><span>Aggiungi al carrello</span></button></p>
         </div>
         <div class="dubbel">
             <div class="card">
@@ -230,7 +256,7 @@
                     <p class="quantity">33 cl</p>
 
 
-                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><button  type="button" class="btncarrello" onclick="window.alert('Prodotto Acquistato')"><span>Aggiungi al carrello</span></button></p>
         </div>
         <div class="bitter">
             <div class="card">
@@ -247,7 +273,7 @@
                     <p class="quantity">33 cl</p>
 
 
-                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><button  type="button" class="btncarrello" onclick="window.alert('Prodotto Acquistato')"><span>Aggiungi al carrello</span></button></p>
         </div>
         <br><br>
         <!--////////////////////////////// fusti \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
@@ -275,7 +301,7 @@
                     <p class="quantity">15 L</p>
 
 
-                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><button  type="button" class="btncarrello" onclick="window.alert('Prodotto Acquistato')"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <div class="dubbel">
@@ -293,7 +319,7 @@
                     <p class="quantity">15 L</p>
 
 
-                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><button  type="button" class="btncarrello" onclick="window.alert('Prodotto Acquistato')"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <div class="bitter">
@@ -311,7 +337,7 @@
                     <p class="quantity">15 L</p>
 
 
-                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><button  type="button" class="btncarrello" onclick="window.alert('Prodotto Acquistato')"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <br><br>
@@ -331,7 +357,7 @@
                     <p class="quantity">15 L</p>
 
 
-                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><button  type="button" class="btncarrello" onclick="window.alert('Prodotto Acquistato')"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <div class="dubbel">
@@ -349,7 +375,7 @@
                     <p class="quantity">15 L</p>
 
 
-                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><button  type="button" class="btncarrello" onclick="window.alert('Prodotto Acquistato')"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <div class="bitter">
@@ -367,7 +393,7 @@
                     <p class="quantity">15 L</p>
 
 
-                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><button  type="button" class="btncarrello" onclick="window.alert('Prodotto Acquistato')"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <br><br>
@@ -387,7 +413,7 @@
                     <p class="quantity">15 L</p>
 
 
-                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><button  type="button" class="btncarrello" onclick="window.alert('Prodotto Acquistato')"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <div class="dubbel">
@@ -405,7 +431,7 @@
                     <p class="quantity">15 L</p>
 
 
-                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><button  type="button" class="btncarrello" onclick="window.alert('Prodotto Acquistato')"><span>Aggiungi al carrello</span></button></p>
         </div>
 
         <div class="bitter">
@@ -423,7 +449,7 @@
                     <p class="quantity">15 L</p>
 
 
-                    <p><button  type="button" class="btncarrello" onclick="this.innerHTML='Prodotto Aggiunto'"><span>Aggiungi al carrello</span></button></p>
+                    <p><button  type="button" class="btncarrello" onclick="window.alert('Prodotto Acquistato')"><span>Aggiungi al carrello</span></button></p>
         </div>
         <br><br>
 

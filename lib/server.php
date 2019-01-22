@@ -206,9 +206,10 @@ public function caricaProdotto($id,$nome,$quantita,$prezzo){
   *
   * @param int $id
   * @param int $quantita
+  * @param int $input
   * @return string
   */
- public function decrementaProdotto($id){
+ public function decrementaProdotto($id,$input){
     require_once "../include/core.inc.php";
         $link = connetti_mysql();
         if(!$link) return false;
@@ -219,7 +220,7 @@ public function caricaProdotto($id,$nome,$quantita,$prezzo){
         disconnetti_mysql($link);
         return "Errore nell'estrazione";
       }else{
-        $sql = "UPDATE prodotto SET Quantita=Quantita - 1  WHERE ID='$id';";
+        $sql = "UPDATE prodotto SET Quantita=Quantita - '$input'  WHERE ID='$id';";
         esegui_query($link, $sql);
         disconnetti_mysql($link);
         return "Acquisto avvenuto con successo";
