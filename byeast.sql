@@ -17,7 +17,7 @@ CREATE TABLE `prodotto` (
   `ID` int(11) NOT NULL,
   `Nome` text(80) NOT NULL,
   `Quantita` int(11) NOT NULL,
-  `Prezzo` int(11) NOT NULL
+  `Prezzo` int(11) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
