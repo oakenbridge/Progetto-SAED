@@ -13,11 +13,11 @@ SET time_zone = "+00:00";
 -- Struttura della tabella `prodotto`
 --
 
-CREATE TABLE `prodotto` (
+CREATE TABLE prodotto (
   `ID` int(11) NOT NULL,
   `Nome` text(80) NOT NULL,
   `Quantita` int(11) NOT NULL,
-  `Prezzo` int(11) NOT NULL,
+  `Prezzo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -50,7 +50,7 @@ INSERT INTO prodotto (ID, Nome, Quantita, Prezzo) VALUES
 -- Struttura della tabella `utente`
 --
 
-CREATE TABLE `utente` (
+CREATE TABLE utente (
   `Nome` text NOT NULL,
   `Cognome` text NOT NULL,
   `Username` text NOT NULL,

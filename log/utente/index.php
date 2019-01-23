@@ -80,7 +80,7 @@
                     <p class="prezzo">3€</p>
 
                     <p class="quantity">33 cl</p>
-                    <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
+                    <div class="counterbtn"><form class="formlogin clearfix" method="post" >
                                             <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
@@ -116,12 +116,17 @@
                       <?php
 
                       if(isset($_POST['button'])){
+                        function dec(){
                         require_once('C:/xampp/htdocs/Progetto-SAED/lib/class.phpwsdl.php');
                         ini_set('soap.wsdl_cache_enabled',0);
                         PhpWsdl::$CacheTime=0;
                         $wsdl="C:/xampp/htdocs/Progetto-SAED/lib/cache/server.wsdl";
                         $soap= new SoapClient($wsdl);
-                        $risposta = $soap->decrementaProdotto($_POST['button'],$_POST['input']);
+
+                        $id=$_POST['button'];
+                        $input=$_POST['input'];
+                        $risposta = $soap->decrementaProdotto($id,$input);}
+                        dec();
                       }
                       ?>
 
@@ -141,7 +146,7 @@
                     <p class="prezzo">3€</p>
 
                     <p class="quantity">33 cl</p>
-                    <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
+                    <div class="counterbtn"><form class="formlogin clearfix" method="post" >
                                             <button type="button" id="minus1" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
@@ -173,13 +178,28 @@
                     <?php
 
                     if(isset($_POST['button1'])){
-                      require_once('C:/xampp/htdocs/Progetto-SAED/lib/class.phpwsdl.php');
-                      ini_set('soap.wsdl_cache_enabled',0);
-                      PhpWsdl::$CacheTime=0;
-                      $wsdl="C:/xampp/htdocs/Progetto-SAED/lib/cache/server.wsdl";
-                      $soap= new SoapClient($wsdl);
+                      function dec1(){
+                        $id1=$_POST['button1'];
+                        $input1=$_POST['input1'];
+                        require_once "../include/core.inc.php";
+                            $link = connetti_mysql();
+                            if(!$link) return false;
+                            $check="SELECT Quantita FROM prodotto WHERE ID='$id';";
+                            $quantita=esegui_query($link, $check);
 
-                      $risposta = $soap->decrementaProdotto($_POST['input1'], $_POST['button1']);
+                          if($quantita==0){
+                            disconnetti_mysql($link);
+                            return "Errore nell'estrazione";
+                          }else{
+                            $sql = "UPDATE prodotto SET Quantita=Quantita - '$input'  WHERE ID='$id';";
+                            esegui_query($link, $sql);
+                            disconnetti_mysql($link);
+                            return "Acquisto avvenuto con successo";
+                          }
+                        }
+
+
+                      dec1();
                     }
                     ?>
   </div>
