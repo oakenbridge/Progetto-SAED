@@ -80,11 +80,11 @@
                     <p class="prezzo">3€</p>
 
                     <p class="quantity">33 cl</p>
-                    <div class="counterbtn"><form class="formlogin clearfix" method="post" >
+                    <div class="counterbtn"><form method="post" >
                                             <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input" name="input" value="0"></input>
+                                            <input type="number" style="border-radius:25px" id="input" name="input" value="0"></input>
                                             <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
@@ -109,25 +109,23 @@
                                         </div>
 
                     <p>
-                      <button  type="submit" class="btncarrello" name="button" value="1011" onclick="window.alert('Prodotto Acquistato')">
+                      <button type="submit" id="button" class="btncarrello" name="button" value="1011" method="post">
                       <span>Aggiungi al carrello</span>
                     </button></form></p>
 
                       <?php
 
-                      if(isset($_POST['button'])){
-                        function dec(){
+                      if(isset($_POST["button"])){
+                        if($_POST["button"]==1011){
                         require_once('C:/xampp/htdocs/Progetto-SAED/lib/class.phpwsdl.php');
                         ini_set('soap.wsdl_cache_enabled',0);
                         PhpWsdl::$CacheTime=0;
                         $wsdl="C:/xampp/htdocs/Progetto-SAED/lib/cache/server.wsdl";
                         $soap= new SoapClient($wsdl);
-
-                        $id=$_POST['button'];
-                        $input=$_POST['input'];
-                        $risposta = $soap->decrementaProdotto($id,$input);}
-                        dec();
+                        $risposta = $soap->decrementaProdotto($_POST['button'],$_POST['input']);
+                        echo '<script type="text/javascript">alert("' . $risposta . '")</script>';
                       }
+                    }
                       ?>
 
         </div>
@@ -150,7 +148,7 @@
                                             <button type="button" id="minus1" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input1" name="input1" value="0"></input>
+                                            <input type="number" style="border-radius:25px" id="input1" name="input1" value="0"></input>
                                             <button type="button" id="plus1" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
@@ -174,34 +172,22 @@
                                             </script>
                                         </div>
 
-                    <p><button  type="submit" class="btncarrello" nome="button1" value="1012" onclick="window.alert('Prodotto Acquistato')"><span>Aggiungi al carrello</span></button></form></p>
+                    <p><button  type="submit" class="btncarrello" nome="button1" value="1012">
+                      <span>Aggiungi al carrello</span></button></form></p>
                     <?php
-
                     if(isset($_POST['button1'])){
-                      function dec1(){
-                        $id1=$_POST['button1'];
-                        $input1=$_POST['input1'];
-                        require_once "../include/core.inc.php";
-                            $link = connetti_mysql();
-                            if(!$link) return false;
-                            $check="SELECT Quantita FROM prodotto WHERE ID='$id';";
-                            $quantita=esegui_query($link, $check);
-
-                          if($quantita==0){
-                            disconnetti_mysql($link);
-                            return "Errore nell'estrazione";
-                          }else{
-                            $sql = "UPDATE prodotto SET Quantita=Quantita - '$input'  WHERE ID='$id';";
-                            esegui_query($link, $sql);
-                            disconnetti_mysql($link);
-                            return "Acquisto avvenuto con successo";
-                          }
-                        }
-
-
-                      dec1();
+                      if($_POST['button1']==1012){
+                      require_once('C:/xampp/htdocs/Progetto-SAED/lib/class.phpwsdl.php');
+                      ini_set('soap.wsdl_cache_enabled',0);
+                      PhpWsdl::$CacheTime=0;
+                      $wsdl="C:/xampp/htdocs/Progetto-SAED/lib/cache/server.wsdl";
+                      $soap= new SoapClient($wsdl);
+                      $risposta = $soap->decrementaProdotto($_POST['button1'],$_POST['input1']);
+                      echo '<script type="text/javascript">alert("' . $risposta . '")</script>';
                     }
+                  }
                     ?>
+
   </div>
 
 
@@ -219,29 +205,29 @@
 
                     <p class="quantity">33 cl</p>
                     <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
-                                            <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
+                                            <button type="button" id="minus2" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input" name="input" value="0"></input>
-                                            <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
+                                            <input type="number" style="border-radius:25px" id="input2" name="input2" value="0"></input>
+                                            <button type="button" id="plus2" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
                                             <script>
-                                            const minusButton = document.getElementById('minus');
-                                            const plusButton = document.getElementById('plus');
-                                            const inputField = document.getElementById('input');
+                                            const minusButton2 = document.getElementById('minus2');
+                                            const plusButton2 = document.getElementById('plus2');
+                                            const inputField2 = document.getElementById('input2');
 
-                                            minusButton.addEventListener('click', event => {
+                                            minusButton2.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            if(currentValue>0){
-                                            inputField.value = currentValue - 1;}
+                                            const currentValue2 = Number(inputField2.value) || 0;
+                                            if(currentValue2>0){
+                                            inputField2.value = currentValue2 - 1;}
                                             });
 
-                                            plusButton.addEventListener('click', event => {
+                                            plusButton2.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            inputField.value = currentValue + 1;
+                                            const currentValue2 = Number(inputField2.value) || 0;
+                                            inputField2.value = currentValue2 + 1;
                                             });
                                             </script>
                                         </div>
@@ -265,29 +251,29 @@
 
                     <p class="quantity">33 cl</p>
                     <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
-                                            <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
+                                            <button type="button" id="minus3" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input" name="input" value="0"></input>
-                                            <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
+                                            <input type="number" style="border-radius:25px" id="input3" name="input3" value="0"></input>
+                                            <button type="button" id="plus3" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
                                             <script>
-                                            const minusButton = document.getElementById('minus');
-                                            const plusButton = document.getElementById('plus');
-                                            const inputField = document.getElementById('input');
+                                            const minusButton3 = document.getElementById('minus3');
+                                            const plusButton3 = document.getElementById('plus3');
+                                            const inputField3 = document.getElementById('input3');
 
-                                            minusButton.addEventListener('click', event => {
+                                            minusButton3.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            if(currentValue>0){
-                                            inputField.value = currentValue - 1;}
+                                            const currentValue3 = Number(inputField3.value) || 0;
+                                            if(currentValue3>0){
+                                            inputField3.value = currentValue3 - 1;}
                                             });
 
-                                            plusButton.addEventListener('click', event => {
+                                            plusButton3.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            inputField.value = currentValue + 1;
+                                            const currentValue3 = Number(inputField3.value) || 0;
+                                            inputField3.value = currentValue3 + 1;
                                             });
                                             </script>
                                         </div>
@@ -310,29 +296,29 @@
 
                     <p class="quantity">33 cl</p>
                     <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
-                                            <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
+                                            <button type="button" id="minus4" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input" name="input" value="0"></input>
-                                            <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
+                                            <input type="number" style="border-radius:25px" id="input4" name="input4" value="0"></input>
+                                            <button type="button" id="plus4" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
                                             <script>
-                                            const minusButton = document.getElementById('minus');
-                                            const plusButton = document.getElementById('plus');
-                                            const inputField = document.getElementById('input');
+                                            const minusButton4 = document.getElementById('minus4');
+                                            const plusButton4 = document.getElementById('plus4');
+                                            const inputField4 = document.getElementById('input4');
 
-                                            minusButton.addEventListener('click', event => {
+                                            minusButton4.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            if(currentValue>0){
-                                            inputField.value = currentValue - 1;}
+                                            const currentValue4 = Number(inputField4.value) || 0;
+                                            if(currentValue4>0){
+                                            inputField4.value = currentValue4 - 1;}
                                             });
 
-                                            plusButton.addEventListener('click', event => {
+                                            plusButton4.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            inputField.value = currentValue + 1;
+                                            const currentValue4 = Number(inputField4.value) || 0;
+                                            inputField4.value = currentValue4 + 1;
                                             });
                                             </script>
                                         </div>
@@ -354,29 +340,29 @@
 
                     <p class="quantity">33 cl</p>
                     <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
-                                            <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
+                                            <button type="button" id="minus5" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input" name="input" value="0"></input>
-                                            <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
+                                            <input type="number" style="border-radius:25px" id="input5" name="input5" value="0"></input>
+                                            <button type="button" id="plus5" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
                                             <script>
-                                            const minusButton = document.getElementById('minus');
-                                            const plusButton = document.getElementById('plus');
-                                            const inputField = document.getElementById('input');
+                                            const minusButton5 = document.getElementById('minus5');
+                                            const plusButton5 = document.getElementById('plus5');
+                                            const inputField5 = document.getElementById('input5');
 
-                                            minusButton.addEventListener('click', event => {
+                                            minusButton5.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            if(currentValue>0){
-                                            inputField.value = currentValue - 1;}
+                                            const currentValue5 = Number(inputField5.value) || 0;
+                                            if(currentValue5>0){
+                                            inputField5.value = currentValue5 - 1;}
                                             });
 
-                                            plusButton.addEventListener('click', event => {
+                                            plusButton5.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            inputField.value = currentValue + 1;
+                                            const currentValue5 = Number(inputField5.value) || 0;
+                                            inputField5.value = currentValue5 + 1;
                                             });
                                             </script>
                                         </div>
@@ -399,29 +385,29 @@
 
                     <p class="quantity">33 cl</p>
                     <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
-                                            <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
+                                            <button type="button" id="minus6" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input" name="input" value="0"></input>
-                                            <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
+                                            <input type="number" style="border-radius:25px" id="input6" name="input6" value="0"></input>
+                                            <button type="button" id="plus6" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
                                             <script>
-                                            const minusButton = document.getElementById('minus');
-                                            const plusButton = document.getElementById('plus');
-                                            const inputField = document.getElementById('input');
+                                            const minusButton6 = document.getElementById('minus6');
+                                            const plusButton6 = document.getElementById('plus6');
+                                            const inputField6 = document.getElementById('input6');
 
-                                            minusButton.addEventListener('click', event => {
+                                            minusButton6.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            if(currentValue>0){
-                                            inputField.value = currentValue - 1;}
+                                            const currentValue6 = Number(inputField6.value) || 0;
+                                            if(currentValue6>0){
+                                            inputField6.value = currentValue6 - 1;}
                                             });
 
-                                            plusButton.addEventListener('click', event => {
+                                            plusButton6.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            inputField.value = currentValue + 1;
+                                            const currentValue6 = Number(inputField6.value) || 0;
+                                            inputField6.value = currentValue6 + 1;
                                             });
                                             </script>
                                         </div>
@@ -442,29 +428,29 @@
 
                     <p class="quantity">33 cl</p>
                     <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
-                                            <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
+                                            <button type="button" id="minus7" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input" name="input" value="0"></input>
-                                            <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
+                                            <input type="number" style="border-radius:25px" id="input7" name="input7" value="0"></input>
+                                            <button type="button" id="plus7" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
                                             <script>
-                                            const minusButton = document.getElementById('minus');
-                                            const plusButton = document.getElementById('plus');
-                                            const inputField = document.getElementById('input');
+                                            const minusButton7 = document.getElementById('minus7');
+                                            const plusButton7 = document.getElementById('plus7');
+                                            const inputField7 = document.getElementById('input7');
 
-                                            minusButton.addEventListener('click', event => {
+                                            minusButton7.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            if(currentValue>0){
-                                            inputField.value = currentValue - 1;}
+                                            const currentValue7 = Number(inputField7.value) || 0;
+                                            if(currentValue7>0){
+                                            inputField7.value = currentValue7 - 1;}
                                             });
 
-                                            plusButton.addEventListener('click', event => {
+                                            plusButton7.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            inputField.value = currentValue + 1;
+                                            const currentValue7 = Number(inputField7.value) || 0;
+                                            inputField7.value = currentValue7 + 1;
                                             });
                                             </script>
                                         </div>
@@ -485,29 +471,29 @@
 
                     <p class="quantity">33 cl</p>
                     <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
-                                            <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
+                                            <button type="button" id="minus8" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input" name="input" value="0"></input>
-                                            <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
+                                            <input type="number" style="border-radius:25px" id="input8" name="input8" value="0"></input>
+                                            <button type="button" id="plus8" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
                                             <script>
-                                            const minusButton = document.getElementById('minus');
-                                            const plusButton = document.getElementById('plus');
-                                            const inputField = document.getElementById('input');
+                                            const minusButton8 = document.getElementById('minus8');
+                                            const plusButton8 = document.getElementById('plus8');
+                                            const inputField8 = document.getElementById('input8');
 
-                                            minusButton.addEventListener('click', event => {
+                                            minusButton8.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            if(currentValue>0){
-                                            inputField.value = currentValue - 1;}
+                                            const currentValue8 = Number(inputField8.value) || 0;
+                                            if(currentValue8>0){
+                                            inputField8.value = currentValue8 - 1;}
                                             });
 
-                                            plusButton.addEventListener('click', event => {
+                                            plusButton8.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            inputField.value = currentValue + 1;
+                                            const currentValue8 = Number(inputField8.value) || 0;
+                                            inputField8.value = currentValue8 + 1;
                                             });
                                             </script>
                                         </div>
@@ -539,29 +525,29 @@
 
                     <p class="quantity">15 L</p>
                     <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
-                                            <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
+                                            <button type="button" id="minus9" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input" name="input" value="0"></input>
-                                            <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
+                                            <input type="number" style="border-radius:25px" id="input9" name="input9" value="0"></input>
+                                            <button type="button" id="plus9" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
                                             <script>
-                                            const minusButton = document.getElementById('minus');
-                                            const plusButton = document.getElementById('plus');
-                                            const inputField = document.getElementById('input');
+                                            const minusButton9 = document.getElementById('minus9');
+                                            const plusButton9 = document.getElementById('plus9');
+                                            const inputField9 = document.getElementById('input9');
 
-                                            minusButton.addEventListener('click', event => {
+                                            minusButton9.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            if(currentValue>0){
-                                            inputField.value = currentValue - 1;}
+                                            const currentValue9 = Number(inputField9.value) || 0;
+                                            if(currentValue9>0){
+                                            inputField9.value = currentValue9 - 1;}
                                             });
 
-                                            plusButton.addEventListener('click', event => {
+                                            plusButton9.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            inputField.value = currentValue + 1;
+                                            const currentValue9 = Number(inputField9.value) || 0;
+                                            inputField9.value = currentValue9 + 1;
                                             });
                                             </script>
                                         </div>
@@ -583,29 +569,29 @@
 
                     <p class="quantity">15 L</p>
                     <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
-                                            <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
+                                            <button type="button" id="minus10" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input" name="input" value="0"></input>
-                                            <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
+                                            <input type="number" style="border-radius:25px" id="input10" name="input10" value="0"></input>
+                                            <button type="button" id="plus10" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
                                             <script>
-                                            const minusButton = document.getElementById('minus');
-                                            const plusButton = document.getElementById('plus');
-                                            const inputField = document.getElementById('input');
+                                            const minusButton10 = document.getElementById('minus10');
+                                            const plusButton10 = document.getElementById('plus10');
+                                            const inputField10 = document.getElementById('input10');
 
-                                            minusButton.addEventListener('click', event => {
+                                            minusButton10.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            if(currentValue>0){
-                                            inputField.value = currentValue - 1;}
+                                            const currentValue10 = Number(inputField10.value) || 0;
+                                            if(currentValue10>0){
+                                            inputField10.value = currentValue10 - 1;}
                                             });
 
-                                            plusButton.addEventListener('click', event => {
+                                            plusButton10.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            inputField.value = currentValue + 1;
+                                            const currentValue10 = Number(inputField10.value) || 0;
+                                            inputField10.value = currentValue10 + 1;
                                             });
                                             </script>
                                         </div>
@@ -627,29 +613,29 @@
 
                     <p class="quantity">15 L</p>
                     <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
-                                            <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
+                                            <button type="button" id="minus11" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input" name="input" value="0"></input>
-                                            <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
+                                            <input type="number" style="border-radius:25px" id="input11" name="input11" value="0"></input>
+                                            <button type="button" id="plus11" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
                                             <script>
-                                            const minusButton = document.getElementById('minus');
-                                            const plusButton = document.getElementById('plus');
-                                            const inputField = document.getElementById('input');
+                                            const minusButton11 = document.getElementById('minus11');
+                                            const plusButton11 = document.getElementById('plus11');
+                                            const inputField11 = document.getElementById('input11');
 
-                                            minusButton.addEventListener('click', event => {
+                                            minusButton11.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            if(currentValue>0){
-                                            inputField.value = currentValue - 1;}
+                                            const currentValue11 = Number(inputField11.value) || 0;
+                                            if(currentValue11>0){
+                                            inputField11.value = currentValue11 - 1;}
                                             });
 
-                                            plusButton.addEventListener('click', event => {
+                                            plusButton11.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            inputField.value = currentValue + 1;
+                                            const currentValue11 = Number(inputField11.value) || 0;
+                                            inputField11.value = currentValue11 + 1;
                                             });
                                             </script>
                                         </div>
@@ -673,29 +659,29 @@
 
                     <p class="quantity">15 L</p>
                     <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
-                                            <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
+                                            <button type="button" id="minus12" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input" name="input" value="0"></input>
-                                            <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
+                                            <input type="number" style="border-radius:25px" id="input12" name="input12" value="0"></input>
+                                            <button type="button" id="plus12" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
                                             <script>
-                                            const minusButton = document.getElementById('minus');
-                                            const plusButton = document.getElementById('plus');
-                                            const inputField = document.getElementById('input');
+                                            const minusButton12 = document.getElementById('minus12');
+                                            const plusButton12 = document.getElementById('plus12');
+                                            const inputField12 = document.getElementById('input12');
 
-                                            minusButton.addEventListener('click', event => {
+                                            minusButton12.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            if(currentValue>0){
-                                            inputField.value = currentValue - 1;}
+                                            const currentValue12 = Number(inputField12.value) || 0;
+                                            if(currentValue12>0){
+                                            inputField12.value = currentValue12 - 1;}
                                             });
 
-                                            plusButton.addEventListener('click', event => {
+                                            plusButton12.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            inputField.value = currentValue + 1;
+                                            const currentValue12 = Number(inputField12.value) || 0;
+                                            inputField12.value = currentValue12 + 1;
                                             });
                                             </script>
                                         </div>
@@ -717,29 +703,29 @@
 
                     <p class="quantity">15 L</p>
                     <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
-                                            <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
+                                            <button type="button" id="minus13" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input" name="input" value="0"></input>
-                                            <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
+                                            <input type="number" style="border-radius:25px" id="input13" name="input13" value="0"></input>
+                                            <button type="button" id="plus13" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
                                             <script>
-                                            const minusButton = document.getElementById('minus');
-                                            const plusButton = document.getElementById('plus');
-                                            const inputField = document.getElementById('input');
+                                            const minusButton13 = document.getElementById('minus13');
+                                            const plusButton13 = document.getElementById('plus13');
+                                            const inputField13 = document.getElementById('input13');
 
-                                            minusButton.addEventListener('click', event => {
+                                            minusButton13.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            if(currentValue>0){
-                                            inputField.value = currentValue - 1;}
+                                            const currentValue13 = Number(inputField13.value) || 0;
+                                            if(currentValue13>0){
+                                            inputField13.value = currentValue13 - 1;}
                                             });
 
-                                            plusButton.addEventListener('click', event => {
+                                            plusButton13.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            inputField.value = currentValue + 1;
+                                            const currentValue13 = Number(inputField13.value) || 0;
+                                            inputField13.value = currentValue13 + 1;
                                             });
                                             </script>
                                         </div>
@@ -761,29 +747,29 @@
 
                     <p class="quantity">15 L</p>
                     <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
-                                            <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
+                                            <button type="button" id="minus14" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input" name="input" value="0"></input>
-                                            <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
+                                            <input type="number" style="border-radius:25px" id="input14" name="input14" value="0"></input>
+                                            <button type="button" id="plus14" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
                                             <script>
-                                            const minusButton = document.getElementById('minus');
-                                            const plusButton = document.getElementById('plus');
-                                            const inputField = document.getElementById('input');
+                                            const minusButton14 = document.getElementById('minus14');
+                                            const plusButton14 = document.getElementById('plus14');
+                                            const inputField14 = document.getElementById('input14');
 
-                                            minusButton.addEventListener('click', event => {
+                                            minusButton14.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            if(currentValue>0){
-                                            inputField.value = currentValue - 1;}
+                                            const currentValue14 = Number(inputField14.value) || 0;
+                                            if(currentValue14>0){
+                                            inputField14.value = currentValue14 - 1;}
                                             });
 
-                                            plusButton.addEventListener('click', event => {
+                                            plusButton14.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            inputField.value = currentValue + 1;
+                                            const currentValue14 = Number(inputField14.value) || 0;
+                                            inputField14.value = currentValue14 + 1;
                                             });
                                             </script>
                                         </div>
@@ -807,29 +793,29 @@
 
                     <p class="quantity">15 L</p>
                     <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
-                                            <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
+                                            <button type="button" id="minus15" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input" name="input" value="0"></input>
-                                            <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
+                                            <input type="number" style="border-radius:25px" id="input15" name="input15" value="0"></input>
+                                            <button type="button" id="plus15" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
                                             <script>
-                                            const minusButton = document.getElementById('minus');
-                                            const plusButton = document.getElementById('plus');
-                                            const inputField = document.getElementById('input');
+                                            const minusButton15 = document.getElementById('minus15');
+                                            const plusButton15 = document.getElementById('plus15');
+                                            const inputField15 = document.getElementById('input15');
 
-                                            minusButton.addEventListener('click', event => {
+                                            minusButton15.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            if(currentValue>0){
-                                            inputField.value = currentValue - 1;}
+                                            const currentValue15 = Number(inputField15.value) || 0;
+                                            if(currentValue15>0){
+                                            inputField15.value = currentValue15 - 1;}
                                             });
 
-                                            plusButton.addEventListener('click', event => {
+                                            plusButton15.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            inputField.value = currentValue + 1;
+                                            const currentValue15 = Number(inputField15.value) || 0;
+                                            inputField15.value = currentValue15 + 1;
                                             });
                                             </script>
                                         </div>
@@ -851,29 +837,29 @@
 
                     <p class="quantity">15 L</p>
                     <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
-                                            <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
+                                            <button type="button" id="minus16" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input" name="input" value="0"></input>
-                                            <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
+                                            <input type="number" style="border-radius:25px" id="input16" name="input16" value="0"></input>
+                                            <button type="button" id="plus16" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
                                             <script>
-                                            const minusButton = document.getElementById('minus');
-                                            const plusButton = document.getElementById('plus');
-                                            const inputField = document.getElementById('input');
+                                            const minusButton16 = document.getElementById('minus16');
+                                            const plusButton16 = document.getElementById('plus16');
+                                            const inputField16 = document.getElementById('input16');
 
-                                            minusButton.addEventListener('click', event => {
+                                            minusButton16.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            if(currentValue>0){
-                                            inputField.value = currentValue - 1;}
+                                            const currentValue16 = Number(inputField16.value) || 0;
+                                            if(currentValue16>0){
+                                            inputField16.value = currentValue16 - 1;}
                                             });
 
-                                            plusButton.addEventListener('click', event => {
+                                            plusButton16.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            inputField.value = currentValue + 1;
+                                            const currentValue16 = Number(inputField16.value) || 0;
+                                            inputField16.value = currentValue16 + 1;
                                             });
                                             </script>
                                         </div>
@@ -895,29 +881,29 @@
 
                     <p class="quantity">15 L</p>
                     <div class="counterbtn"><form action="#" class="formlogin clearfix" method="post" >
-                                            <button type="button" id="minus" style="border-radius:25px; background-color:#ffad33;">
+                                            <button type="button" id="minus17" style="border-radius:25px; background-color:#ffad33;">
                                                 -
                                             </button>
-                                            <input type="number" id="input" name="input" value="0"></input>
-                                            <button type="button" id="plus" style="border-radius:25px; background-color:#ffad33;">
+                                            <input type="number" style="border-radius:25px" id="input17" name="input17" value="0"></input>
+                                            <button type="button" id="plus17" style="border-radius:25px; background-color:#ffad33;">
                                                 +
                                             </button>
                                             <script>
-                                            const minusButton = document.getElementById('minus');
-                                            const plusButton = document.getElementById('plus');
-                                            const inputField = document.getElementById('input');
+                                            const minusButton17 = document.getElementById('minus17');
+                                            const plusButton17 = document.getElementById('plus17');
+                                            const inputField17 = document.getElementById('input17');
 
-                                            minusButton.addEventListener('click', event => {
+                                            minusButton17.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            if(currentValue>0){
-                                            inputField.value = currentValue - 1;}
+                                            const currentValue17 = Number(inputField17.value) || 0;
+                                            if(currentValue17>0){
+                                            inputField17.value = currentValue17 - 1;}
                                             });
 
-                                            plusButton.addEventListener('click', event => {
+                                            plusButton17.addEventListener('click', event => {
                                             event.preventDefault();
-                                            const currentValue = Number(inputField.value) || 0;
-                                            inputField.value = currentValue + 1;
+                                            const currentValue17 = Number(inputField17.value) || 0;
+                                            inputField17.value = currentValue17 + 1;
                                             });
                                             </script>
                                         </div>

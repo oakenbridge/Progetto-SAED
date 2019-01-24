@@ -218,15 +218,14 @@ public function caricaProdotto($id,$nome,$quantita,$prezzo){
 
       if($quantita==0){
         disconnetti_mysql($link);
-        return "Errore nell'estrazione";
+        return "Prodotto non disponibile";
       }else{
-        $sql = "UPDATE prodotto SET Quantita=Quantita - '$input'  WHERE ID='$id';";
+        $sql = "UPDATE prodotto SET Quantita=Quantita - '$input'  WHERE ID='$id' AND Quantita>='$input';";
         esegui_query($link, $sql);
         disconnetti_mysql($link);
-        return "Acquisto avvenuto con successo";
+        return "Prodotto acquistato";
       }
     }
-
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /**
    * dipendenti
